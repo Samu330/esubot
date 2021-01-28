@@ -1,10 +1,10 @@
 let handler = async (m, { conn, command, text }) => {
   conn.reply(m.chat, `
-*Pertanyaan:* ${command} ${text}
-*Jawaban:* ${Math.floor(Math.random() * 10)} ${pickRandom(['detik', 'menit', 'jam', 'hari', 'minggu', 'bulan', 'tahun', 'dekade', 'abad'])} lagi ...
+*Pregunta:* ${command} ${text}
+*Responder:* ${Math.floor(Math.random() * 10)} ${pickRandom(['segundo', 'minuto', 'hora', 'día', 'domingo', 'mes', 'año', 'década', 'abad'])} lagi ...
 `.trim(), m)
 }
-handler.help = ['', 'kah'].map(v => 'kapan' + v + ' <pertanyaan>')
+handler.help = ['', 'kah'].map(v => 'kapan' + v + ' <pregunta>')
 handler.tags = ['kerang']
 handler.command = /^kapan(kah)?/i
 handler.owner = false
