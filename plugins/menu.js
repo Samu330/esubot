@@ -65,21 +65,21 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     conn.menu = conn.menu ? conn.menu : {}
     let before = conn.menu.before || `
 ╭─「 ${conn.getName(conn.user.jid)} 」
-│ Hai, %name!
+│ 😀Hola, %name!
 │
 │ *%exp XP*
-│ Tersisa *%limit Limit*
+│ ✔Restante *%limit Limit*
 │
-│ Tanggal: *%week %weton, %date*
-│ Waktu: *%time*
+│ 📆Fecha: *%week %weton, %date*
+│ ⌚Hora: *%time*
 │
-│ Uptime: *%uptime*
-│ Database: %totalreg nomor
-│ Github:
-│ %github
+│ ♻Tiempo de actividad: *%uptime*
+│ 🏆Database: %totalreg nomor
+│ 👑My canal de youtube:
+│ https://www.youtube.com/channel/UCqPXxG2ZdDe_ugOqMHDRMqg
 ╰────
 %readmore`
-    let header = conn.menu.header || '╭─「 %category 」'
+    let header = conn.menu.header || '╭─「✨ %category 」'
     let body   = conn.menu.body   || '│ • %cmd%islimit'
     let footer = conn.menu.footer || '╰────\n'
     let after  = conn.menu.after  || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + `\n*%npmname@^%version*\n\`\`\`\%npmdesc\`\`\``
