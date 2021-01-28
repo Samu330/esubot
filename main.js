@@ -11,7 +11,7 @@ let util = require('util')
 let WAConnection = simple.WAConnection(_WAConnection)
 
 
-global.owner = ['6281515860089'] // Put your number here
+global.owner = ['529984907794'] //Put your number  here
 global.mods = [] // Want some help?
 global.prems = [] // Premium user has unlimited limit
 
@@ -251,14 +251,14 @@ conn.on('close', async () => {
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rOwner: 'Perintag ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
-    owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    premium: 'Perintah ini hanya untuk member _*Premium*_ !',
-    group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
-    admin: 'Perintah ini hanya untuk *Admin* grup!',
-    botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!'
+    rOwner: 'Este navegador solo puede ser utilizado por _*OWWNER!1!1!*_',
+    owner: 'Este comando solo puede ser utilizado por _*Owner Bot*_!',
+    mods: 'Este comando solo puede ser utilizado por _*Moderator*_ !',
+    premium: 'Este comando es solo para miembros _*Premium*_ !',
+    group: 'Este comando solo se puede usar en grupos!',
+    private: 'Este comando solo se puede usar en chats privados!',
+    admin: 'Este comando es para *Admin* grup!',
+    botAdmin: 'El bot debe ser *Admin* para usar este comando!'
   }[type]
   if (msg)conn.reply(m.chat, msg, m)
 }
