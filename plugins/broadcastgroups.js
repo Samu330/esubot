@@ -3,9 +3,9 @@ let handler  = async (m, { conn, text }) => {
   for (let id of groups) conn.sendMessage(id, text + (/broadcast/im.test(text) ? '' : ('\n' + readMore + '• _*BROADCAST*_ •')), m.mtype, m.msg.contextInfo ? {
     contextInfo: m.msg.contextInfo
   } : {})
-  conn.reply(m.chat, `_Mengirim pesan broadcast ke ${groups.length} grup_`, m)
+  conn.reply(m.chat, `_Enviar mensajes de difusión a ${groups.length} grup_`, m)
 }
-handler.help = ['broadcastgroup','bcgc'].map(v => v + ' <teks>')
+handler.help = ['broadcastgroup','bcgc'].map(v => v + ' <texto>')
 handler.tags = ['owner']
 handler.command = /^(broadcast|bc)(group|grup|gc)$/i
 handler.owner = true
