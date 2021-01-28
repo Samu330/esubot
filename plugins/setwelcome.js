@@ -1,10 +1,10 @@
 let handler = async (m, { conn, text }) => {
   if (text) {
     conn.welcome = text
-    m.reply('Welcome berhasil diatur\n@user (Mention)')
-  } else throw 'Teksnya mana?'
+    m.reply('Bienvenida configurada correctamente\n@user (Mention)')
+  } else throw 'Donde esta el texto?'
 }
-handler.help = ['setwelcome <teks>']
+handler.help = ['setwelcome <texto>']
 handler.tags = ['owner']
 
 handler.command = /^setwelcome$/i
