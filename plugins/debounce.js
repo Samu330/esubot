@@ -1,7 +1,7 @@
 let { spawn }  = require('child_process');
 let handler  = async (m, { conn }) => {
   if (global.conn.user.jid == conn.user.jid) {
-    await m.reply('Sedang Mereset Bot...\nMohon tunggu sekitar 1 menit')
+    await m.reply('Reiniciando Bot...\nEspere aproximadamente 1 minuto')
     process.send('reset')
     process.exit()
   } else throw '_eeeeeiiittsssss..._'
