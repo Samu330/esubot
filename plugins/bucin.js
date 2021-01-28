@@ -23,12 +23,12 @@ function pickRandom(list) {
 
 // https://jalantikus.com/tips/kata-kata-bucin/
 global.bucin = [
-  "Aku memilih untuk sendiri, bukan karena menunggu yang sempurna, tetapi butuh yang tak pernah menyerah.",
-  "Seorang yang single diciptakan bersama pasangan yang belum ditemukannya.",
-  "Jomblo. Mungkin itu cara Tuhan untuk mengatakan 'Istirahatlah dari cinta yang salah'.",
-  "Jomblo adalah anak muda yang mendahulukan pengembangan pribadinya untuk cinta yang lebih berkelas nantinya.",
-  "Aku bukan mencari seseorang yang sempurna, tapi aku mencari orang yang menjadi sempurna berkat kelebihanku.",
-  "Pacar orang adalah jodoh kita yang tertunda.",
+  "Elijo estar solo, no por esperar lo perfecto, pero necesito que nunca me rinda.",
+  "Se creó una sola persona con un socio que no había encontrado.",
+  "Individual. Tal vez es la forma de Dios de decir 'Tómate un descanso del amor equivocado'.",
+  "Los solteros son jóvenes que priorizan su desarrollo personal para un amor con más clase después..",
+  "No busco a alguien que sea perfecto, sino que busco a alguien que sea perfecto gracias a mis fortalezas.",
+  "El novio de alguien es nuestro alma gemela pendiente.",
   "Jomblo pasti berlalu. Semua ada saatnya, saat semua kesendirian menjadi sebuah kebersamaan dengannya kekasih halal. Bersabarlah.",
   "Romeo rela mati untuk juliet, Jack mati karena menyelamatkan Rose. Intinya, kalau tetap mau hidup, jadilah single.",
   "Aku mencari orang bukan dari kelebihannya tapi aku mencari orang dari ketulusan hatinya.",
