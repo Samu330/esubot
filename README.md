@@ -1,11 +1,11 @@
 <p align="center">
-<img src="https://media.giphy.com/media/sRGUfOYkLt5chUss87/giphy.gif" width="128" height="128"/>
+<img src="https://media.giphy.com/media/sRGUfOYkLt5chUss87/giphy.gif" width="128" height="135"/>
 </p>
 
 # esu-bot
 Simple WhatsApp Bot for Andriod & pc
 
-BOT BY ⃟۞꙰홎͟홖ᷨ͜홢᤻ͦ홪᤻ͭ₃₃₀࿗᭄⃟ ⃟꙰
+BOT BY Smu330⃟꙰
 
 TEAM ♥️• ̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬⃟꙰ͧͧͧ⃤⃫✫⃝꯭꯭꯭꯭햮꯭꯭℠₃₃‎̶₀̶• ⃫̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬⃟꙰♥️⃝⃫꙰꙰꙰✫
 
