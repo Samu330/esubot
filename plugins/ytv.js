@@ -2,17 +2,17 @@ let fetch = require('node-fetch')
 let { JSDOM } = require('jsdom')
 let limit = 30
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
-  if (!args || !args[0]) return conn.reply(m.chat, 'Uhm... urlnya mana?', m)
+  if (!args || !args[0]) return conn.reply(m.chat, 'Uhm ... ¿Dónde está la URL??', m)
   let { dl_link, thumb, title, filesize, filesizeF} = await ytv(args[0])
   let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
   conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-*${isLimit ? 'Pakai ': ''}Link:* ${dl_link}
+*✅Title:* ${title}
+*📁Filesize:* ${filesizeF}
+*${isLimit ? 'Póntelo ': ''}Link:* ${dl_link}
 `.trim(), m)
   if (!isLimit) conn.sendFile(m.chat, dl_link, 'video.mp4', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
+*✅Title:* ${title}
+*📁Filesize:* ${filesizeF}
 `.trim(), m)
 }
 handler.help = ['mp4','v',''].map(v => 'yt' + v + ' <url>')
