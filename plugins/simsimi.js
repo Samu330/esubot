@@ -4,7 +4,7 @@ let handler = async (m, { text }) => {
   let json = await res.json()
   if (json.status) m.reply(json.jawaban)
 }
-handler.help = ['sim', ''].map(v => v + 'simi <teks>')
+handler.help = ['sim', ''].map(v => v + 'simi <texto>')
 handler.tags = ['fun']
 handler.command = /^((sim)?simi)$/i
 
