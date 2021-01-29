@@ -74,12 +74,12 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 │ ⌚Hora: *%time*
 │
 │ ♻Tiempo de actividad: *%uptime*
-│ 🏆Database: %totalreg nomor
+│ 🏆Database: %totalreg numero
 │ 👑My canal de youtube:
 │ https://www.youtube.com/channel/UCqPXxG2ZdDe_ugOqMHDRMqg
 ╰────
 %readmore`
-    let header = conn.menu.header || '╭─「✨ %category 」'
+    let header = conn.menu.header || '╭─「👑 %category 」'
     let body   = conn.menu.body   || '│ • %cmd%islimit'
     let footer = conn.menu.footer || '╰────\n'
     let after  = conn.menu.after  || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + `\n*%npmname@^%version*\n\`\`\`\%npmdesc\`\`\``
@@ -107,7 +107,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).join`|`})`, 'g'), (_, name) => replace[name])
     conn.reply(m.chat, text.trim(), m)
   } catch (e) {
-    conn.reply(m.chat, 'Maaf, menu sedang error', m)
+    conn.reply(m.chat, 'Aff, error de menu', m)
     throw e
   }
 }
