@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 let handler = async (m, { text }) => {
-  let res = await fetch('https://api.xteam.xyz/simsimi?kata=' + encodeURIComponent(text))
+  let res = await fetch('http://simsumi.herokuapp.com/api?text=' + encodeURIComponent(text))
   let json = await res.json()
   if (json.status) m.reply(json.jawaban)
 }
