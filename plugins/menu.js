@@ -74,7 +74,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 │ ⌚Hora: *%time*
 │
 │ ♻Tiempo de actividad: *%uptime*
-│ 🏆Database: %totalreg numero
+│ 🏆Database: %totalreg numeros
 │ 👑My canal de youtube:
 │ https://www.youtube.com/channel/UCqPXxG2ZdDe_ugOqMHDRMqg
 ╰────
