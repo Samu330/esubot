@@ -76,7 +76,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 │ ♻Tiempo de actividad: *%uptime*
 │ 🏆Database: %totalreg numeros
 │ 👑My canal de youtube:
-│ https://www.youtube.com/channel/UCqPXxG2ZdDe_ugOqMHDRMqg
+│ _Por el momento no hay_
 ╰────
 %readmore`
     let header = conn.menu.header || '╭─「👑 %category 」'
