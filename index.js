@@ -2,7 +2,7 @@ console.log('Starting...')
 let { spawn } = require('child_process')
 let path = require('path')
 const CFonts  = require('cfonts')
-CFonts.say('TERMUX-WABOT-SAMU330', {
+CFonts.say('WABOT-SAMU330', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']
@@ -10,12 +10,12 @@ CFonts.say('TERMUX-WABOT-SAMU330', {
 CFonts.say('\'wabot-esu\' By @Samu330', {
   font: 'console',
   align: 'center',
-  gradient: ['green']
+  gradient: ['green', 'green']
 })
 CFonts.say('SUSCRIBETE A MI CANAL, SI NO ESTAS SUSCRITO EL BOT NO JALA:v', {
   font: 'console',
   align: 'center',
-  gradient: ['red']
+  gradient: ['red', 'red']
 })
 
 function start() {
@@ -23,7 +23,7 @@ function start() {
   CFonts.say([process.argv[0], ...args].join(' '), {
     font: 'console',
     align: 'center',
-    gradient: ['red', 'magenta']
+    gradient: ['red', 'blue']
   })
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
