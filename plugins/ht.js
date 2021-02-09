@@ -38,8 +38,8 @@ function ht(text = '') {
     let format = ',format=rgb24'
     let layers = [
       `[v:0]scale=${s}${format}[im]`,
-      textArgs('HARTA', 'black', 'white', fsize, font, '(w-text_w)/2', `(h-text_h)/2-(text_h*${lh})`, w, h) + format + '[top]',
-      textArgs('TAHTA', 'black', 'white', fsize, font, '(w-text_w)/2', `(h-text_h)/2`, w, h) + format + '[mid]',
+      textArgs('SAMU', 'black', 'white', fsize, font, '(w-text_w)/2', `(h-text_h)/2-(text_h*${lh})`, w, h) + format + '[top]',
+      textArgs('330', 'black', 'white', fsize, font, '(w-text_w)/2', `(h-text_h)/2`, w, h) + format + '[mid]',
       textArgs(text, 'black', 'white', fsize, font, '(w-text_w)/2', `(h-text_h)/2+(text_h*${lh})`, w, h) + format + '[bot]',
       '[top][mid]blend=all_mode=addition[con]',
       '[con][bot]blend=all_mode=addition[txt]',
