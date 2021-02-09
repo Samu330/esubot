@@ -2,7 +2,7 @@ console.log('Starting...')
 let { spawn } = require('child_process')
 let path = require('path')
 const CFonts  = require('cfonts')
-CFonts.say('SAMU WABOT', {
+CFonts.say('TERMUX-WABOT-SAMU330', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']
@@ -10,12 +10,12 @@ CFonts.say('SAMU WABOT', {
 CFonts.say('\'wabot-esu\' By @Samu330', {
   font: 'console',
   align: 'center',
-  gradient: ['red', 'magenta']
+  gradient: ['green']
 })
-CFonts.say('SUSCRIBETE A MI CANAL', {
+CFonts.say('SUSCRIBETE A MI CANAL, SI NO ESTAS SUSCRITO EL BOT NO JALA:v', {
   font: 'console',
   align: 'center',
-  gradient: ['red', 'blue']
+  gradient: ['red']
 })
 
 function start() {
