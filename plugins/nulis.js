@@ -51,7 +51,7 @@ let handler  = async (m, { conn, args }) => {
   ])
   .on('error', e => conn.reply(m.chat, util.format(e), m))
   .on('exit', () => {
-    conn.sendFile(m.chat, outputPath, 'nulis.jpg', '𝑛𝑖ℎ 𝑡𝑢𝑙𝑖𝑠𝑎𝑛 𝑚𝑢 𝑛𝑡𝑎𝑟 𝑘𝑢 𝑏𝑖𝑙𝑎𝑛𝑔𝑖𝑛 𝑔𝑢𝑟𝑢𝑚𝑢 𝑚𝑎𝑚𝑝𝑢𝑠', m)
+    conn.sendFile(m.chat, outputPath, 'nulis.jpg', 'Aquí está tu publicación diciéndome cómo fallaste', m)
   })
 }
 handler.help = ['n'].map(v => v + 'ulis <teks>')
