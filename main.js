@@ -1,28 +1,47 @@
 let { WAConnection: _WAConnection, WA_MESSAGE_STUB_TYPES } = require('@adiwajshing/baileys')
+require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
 let qrcode = require('qrcode')
 let simple = require('./lib/simple')
+let logs = require('./lib/logs')
 let yargs = require('yargs/yargs')
 let syntaxerror = require('syntax-error')
+let fetch = require('node-fetch')
 let chalk = require('chalk')
 let fs = require('fs')
 let path = require('path')
 let util = require('util')
+let { spawnSync } = require('child_process')
 let WAConnection = simple.WAConnection(_WAConnection)
 
 
 global.owner = ['529984907794'] //Put your number  here
-global.mods = [] // Want some help?
-global.prems = [] // Premium user has unlimited limit
-
-
+global.mods = ['529984907794'] // Want some help?
+global.prems = ['529984907794'] // Premium user has unlimited limit
+global.APIs = { // API Prefix
+  // name: 'https://website'
+  nrtm: 'https://nurutomo.herokuapp.com',
+  xteam: 'https://api.xteam.xyz'
+}
+global.APIKeys = { // APIKey Here
+  // 'https://website': 'apikey'
+  'https://api.xteam.xyz': 'test'
+}
+global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {})})) : '')
 global.timestamp = {
   start: new Date
 }
+
 const PORT = process.env.PORT || 3000
 let opts = yargs(process.argv.slice(2)).exitProcess(false).parse()
 global.opts = Object.freeze({...opts})
 global.prefix = new RegExp('^[' + (opts['prefix'] || '\\/i!#$%\\-+£¢€¥^°=¶∆×÷π√✓©®:;?&.') + ']')
+
+global.LOGGER = logs()
+const PORT = process.env.PORT || 3000
+let opts = yargs(process.argv.slice(2)).exitProcess(false).parse()
+global.opts = Object.freeze({...opts})
+global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ\\/i!#$%\\-+£¢€¥^°=¶∆×÷π√✓©®:;?&.') + ']')
 
 global.DATABASE = new (require('./lib/database'))(opts._[0] ? opts._[0] + '_' : '' + 'database.json', null, 2)
 if (!global.DATABASE.data.users) global.DATABASE.data = {
