@@ -4,20 +4,20 @@ let handler = async (m, { conn }) => {
   if (!m.quoted) return
   if (m.quoted.sender != conn.user.jid) return
   if (!/^Berapa hasil dari/i.test(m.quoted.text)) return
-  if (!(m.chat in global.math)) return conn.reply(m.chat, 'Soal itu telah berakhir', m)
+  if (!(m.chat in global.math)) return conn.reply(m.chat, 'Esa pregunta ha terminado', m)
   if (m.quoted.id == global.math[id][0].id) {
   let math = global.math[id][1]
   if (m.text == math.result) {
-    conn.reply(m.chat, `*Jawaban Benar!*\n+${math.bonus} XP`, m)
+    conn.reply(m.chat, `*Respuesta correcta!*\n+${math.bonus} XP`, m)
     global.DATABASE._data.users[m.sender].exp += math.bonus
     clearTimeout(global.math[id][3])
     delete global.math[id]
   } else {
     if (--global.math[id][2] == 0) {
-      conn.reply(m.chat, `*Kesempatan habis!*\nJawaban: *${math.result}*`, m)
+      conn.reply(m.chat, `*El tiempo se acabo!*\nRespuesta: *${math.result}*`, m)
       clearTimeout(global.math[id][3])
       delete global.math[id]
-    } else conn.reply(m.chat, `*Jawaban Salah!*\nMasih ada ${global.math[id][2]} kesempatan`, m)
+    } else conn.reply(m.chat, `*Respuesta incorrecta!*\nAun disponible ${global.math[id][2]} oportunidad`, m)
   }
  }
 }
