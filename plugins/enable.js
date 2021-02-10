@@ -13,13 +13,13 @@ let handler = async (m, { usedPrefix, command, text, args }) => {
       return m.reply(`
 List option: welcome | delete
 
-Contoh:
+Ejemplo:
 ${usedPrefix}enable welcome
 ${usedPrefix}disable welcome
 `.trim())
   }
   m.reply(`
-*${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* untuk chat ini
+*${type}* se establecio *${isEnable ? 'on' : 'off'}correcto* para este chat
 `.trim())
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
