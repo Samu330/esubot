@@ -3,18 +3,18 @@ let { JSDOM } = require('jsdom')
 let limit = 30
 let serverlist = ['id4', 'en60']
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
-  if (!args || !args[0]) return conn.reply(m.chat, '𝑳𝒊𝒏𝒌 𝒚𝒂𝒏𝒈 𝒎𝒂𝒖 𝒅𝒊 𝒅𝒐𝒘𝒏𝒍𝒐𝒂𝒅 𝒎𝒂𝒏𝒂?', m)
+  if (!args || !args[0]) return conn.reply(m.chat, '𝑬𝒎𝒎, 𝒚 𝒆𝒍 𝒍𝒊𝒏𝒌??', m)
   let server = (args[1] || 'id4').toLowerCase()
   let { dl_link, thumb, title, filesize, filesizeF} = await ytv(args[0], serverlist.includes(server) ? server : 'id4')
   let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
   conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-*${isLimit ? 'Pakai ': ''}Link:* ${dl_link}
+*📱Title:* ${title}
+*📁Filesize:* ${filesizeF}
+*💥${isLimit ? 'Restantes ': ''}Link:* ${dl_link}
 `.trim(), m)
   if (!isLimit) conn.sendFile(m.chat, dl_link, 'video.mp4', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
+*📱Title:* ${title}
+*📁Filesize:* ${filesizeF}
 `.trim(), m)
 }
 handler.help = ['mp4','v',''].map(v => 'yt' + v + ' <url> [server: id4, en60]')
