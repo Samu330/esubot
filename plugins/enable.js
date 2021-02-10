@@ -19,7 +19,7 @@ ${usedPrefix}disable welcome
 `.trim())
   }
   m.reply(`
-*${type}* se establecio *${isEnable ? 'on' : 'off'}correcto* para este chat
+*${type}* se establecio *${isEnable ? 'encendido' : 'apagado'} correcto* para este chat
 `.trim())
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
