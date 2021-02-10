@@ -106,6 +106,10 @@ conn.handler = async function (m) {
           global.DATABASE._data.chats[m.chat].isBanned = false
       } else global.DATABASE._data.chats[m.chat] = {
         isBanned: false
+        welcome: false,
+        sWelcome: '',
+        sBye: '',
+        delete: true
       }
     } catch (e) {
       console.log(e, global.DATABASE.data)
