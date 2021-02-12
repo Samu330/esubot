@@ -1,6 +1,6 @@
 let handler = async (m, { conn, args }) => {
-  let adminGroup = m.chat.split`-`[0] + '@s.whatsapp.net'
-  let users = m.mentionedJid.filter(u => !(u == adminGroup || u.includes(conn.user.jid)))
+  let Group = m.chat.split`-`[0] + '@s.whatsapp.net'
+  let users = m.mentionedJid.filter(u => !(u == Group || u.includes(conn.user.jid)))
   for (let user of users) if (user.endsWith('@s.whatsapp.net')) await conn.groupRemove(m.chat, [user])
 }
 handler.help = ['kick'].map(v => 'kick' + v + ' @user')
