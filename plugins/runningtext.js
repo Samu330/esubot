@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text }) => {
   let q
   try { q = m.quoted.download() }
-  catch (e) { q = m.download() }
+  catch (e) { q = download() }
   m.reply('_En proceso..._\n*Espere aproximadamente 1 minuto*')
   running(await q).then(vid => conn.sendFile(m.chat, vid, 'run.mp4', '*© Samu330*\nMade with FFmpeg', m))
 }
