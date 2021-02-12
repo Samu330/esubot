@@ -36,7 +36,7 @@ global.bucin = [
   "Si eres la cuerda de la guitarra, yo no quiero ser el guitarrista. Porque no quiero romper contigo",
   "Si amarte es una ilusión, déjame imaginar para siempre",
   "Cariño ... Mi trabajo es solo amarte, no contra el destino",
-"Cuando estoy contigo se siente como 1 hora y solo 1 segundo, pero si estoy lejos de ti, parece que 1 día se convierte en 1 año",
+  "Cuando estoy contigo se siente como 1 hora y solo 1 segundo, pero si estoy lejos de ti, parece que 1 día se convierte en 1 año",
   "La compota de plátano sabe sumedang, aunque la distancia se extienda, mi amor nunca desaparecerá",
   "Quiero ser el único, no el único",
   "No puedo prometer ser bueno. Pero prometo estar siempre ahí para ti",
@@ -48,8 +48,8 @@ global.bucin = [
   "Sé que en cada una de mis miradas, estamos bloqueados por la distancia y el tiempo. Pero estoy seguro de que luego nos uniremos",
   "Extrañarte sin ni siquiera conocerte es como crear una canción que nunca se canta",
   "Hay momentos en que la distancia es siempre una barrera entre tú y yo, pero aún en mi corazón siempre estamos cerca",
-  "Si este corazón no puede contener todo el anhelo, qué poder puedo hacer sino orar por ti".
-"Tal vez en este momento sólo pueda soportar este anhelo. Hasta que llegue el momento puedo encontrarme y dejar ir este anhelo contigo",
+  "Si este corazón no puede contener todo el anhelo, qué poder puedo hacer sino orar por ti",
+  "Tal vez en este momento sólo pueda soportar este anhelo. Hasta que llegue el momento puedo encontrarme y dejar ir este anhelo contigo",
   "A través del anhelo que se enciende en mi corazón, a veces realmente necesito un abrazo de tu amor",
   "En la noche fría, ya no recuerdo; con qué frecuencia pienso en ti también te extraño",
   "Extrañarte es como una lluvia que viene de repente y dura mucho tiempo. E incluso después de que la lluvia amainó, todavía la extrañaba",
@@ -77,7 +77,7 @@ global.bucin = [
   "Sé que tu amiga no es solo una, y gustarle no es solo a mí",
   "Desde que dejé de esperarte, no estoy emocionado por todo ..",
   "Contigo, enamorarse es el desamor más deliberado",
-  "Es muy difícil sentir la felicidad de la vida sin tu presencia a mi lado".
+  "Es muy difícil sentir la felicidad de la vida sin tu presencia a mi lado",
   "A través del anhelo que se enciende en mi corazón, a veces realmente necesito un abrazo de tu amor",
   "Si lo sabes, hasta ahora te sigo amando",
   "A veces tengo celos de las cometas ... los atals se rompen y todavía me persiguen y no quiero que me tomen otras personas ...",
