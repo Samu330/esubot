@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['add', '+'].map(v => 'o' + v + ' @user')
 handler.tags = ['admin']
-handler.command = /^(oadd|o\+)$/i
+handler.command = /^(add|o\+)$/i
 handler.owner = true
 handler.mods = false
 handler.premium = false
