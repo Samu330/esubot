@@ -48,4 +48,4 @@ handler.help = ['samu']
 handler.tags = ['info']
 handler.command = /^samu$/i
 
-module.exports = 
+module.exports = handler
