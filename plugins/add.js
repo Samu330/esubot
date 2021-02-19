@@ -4,7 +4,6 @@ let handler = async (m, { conn, args }) => {
 }
 handler.command = [/^(add|\+)$/i]
 handler.tags = ['admin']
-handler.command = /^(oadd|\+)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
