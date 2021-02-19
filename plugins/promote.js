@@ -3,6 +3,7 @@ let handler = async (m, { conn, args }) => {
   conn.groupMakeAdmin(m.chat, users)
 }
 handler.command = /^(promote|admin|\^)$/i
+handler.tags = ['admin']
 handler.owner = false
 handler.mods = false
 handler.premium = false
