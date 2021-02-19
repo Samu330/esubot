@@ -3,6 +3,7 @@ let handler = async (m, { conn, args }) => {
   conn.groupDemoteAdmin(m.chat, users)
 }
 handler.command = /^(demote|member|v)$/i
+handler.tags = ['admin']
 handler.owner = false
 handler.mods = false
 handler.premium = false
