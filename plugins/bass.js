@@ -34,6 +34,23 @@ cmd.on('setuserrole', 'setuserrole', async function (client = new Client(), { fr
     client.sendTextWithMentions(from, `Done:\n${successList.map(config.msg.listUser)}\n\nFailed:\n${failedList.map(config.msg.listUser)}`)
 })
 
+handler.help = ['bass <db>?']
+handler.tags = ['dowloader']
+handler.customPrefix = /(\?$)/
+handler.command = /^apakah$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
+
+module.exports = 
+
 cmd.on('getuserrole', 'getuserrole', async function (client = new Client(), { from, id, isGroupMsg, mentionedJidList, groupId }) {
     failed = permission([
         [!isGroupMsg, config.msg.notGroup],
