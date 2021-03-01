@@ -12,6 +12,23 @@ let path = require('path')
 let util = require('util')
 let { spawnSync } = require('child_process')
 let WAConnection = simple.WAConnection(_WAConnection)
+let battery = await client.getBatteryLevel()
+    let isCharging = await client.getIsPlugged()
+    let used = process.memoryUsage()
+    let cpus = os.cpus().map(cpu => {
+        cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
+        let cpu
+    })
+    let cpu = cpus.reduce((last, cpu, _, { length }) => {
+        last.total += cpu.total
+        last.speed += cpu.speed / length
+        last.times.user += cpu.times.user
+        last.times.nice += cpu.times.nice
+        last.times.sys += cpu.times.sys
+        last.times.idle += cpu.times.idle
+        last.times.irq += cpu.times.irq
+        return last
+    },
 
 
 global.owner = ['529984907794@s.whatsapp.net'] // Put your number here
