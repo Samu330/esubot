@@ -30,23 +30,6 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
         setTimeout(resolve, 1000)
       }) * 1000
     }
-    const battery = await client.getBatteryLevel()
-    const isCharging = await client.getIsPlugged()
-    const used = process.memoryUsage()
-    const cpus = os.cpus().map(cpu => {
-        cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
-        return cpu
-    })
-    const cpu = cpus.reduce((last, cpu, _, { length }) => {
-        last.total += cpu.total
-        last.speed += cpu.speed / length
-        last.times.user += cpu.times.user
-        last.times.nice += cpu.times.nice
-        last.times.sys += cpu.times.sys
-        last.times.idle += cpu.times.idle
-        last.times.irq += cpu.times.irq
-        return last
-    },
     let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
     let totalreg = Object.keys(global.DATABASE._data.users).length
