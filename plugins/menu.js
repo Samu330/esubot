@@ -64,6 +64,10 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
         limit: plugin.limit
       }
     })
+    function monospace(string) {
+    let _3 = '`'.repeat(3)
+    return _3 + string + _3
+}
     let groups = {}
     for (let tag in tags) {
       groups[tag] = []
