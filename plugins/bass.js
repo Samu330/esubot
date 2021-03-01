@@ -49,16 +49,4 @@ handler.botAdmin = false
 
 handler.fail = null
 
-module.exports = 
-
-cmd.on('getuserrole', 'getuserrole', async function (client = new Client(), { from, id, isGroupMsg, mentionedJidList, groupId }) {
-    failed = permission([
-        [!isGroupMsg, config.msg.notGroup],
-        [mentionedJidList.length < 1, config.msg.noJid]
-    ])
-    if (failed[0]) return client.reply(from, failed[1], id)
-
-
-    client.sendTextWithMentions(from, mentionedJidList.map(user => `@${user.replace('@c.us', '')} ${group.getRoleById(groupId, user)}`))
-})
-
+module.exports = handler
