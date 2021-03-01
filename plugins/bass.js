@@ -35,7 +35,7 @@ cmd.on('setuserrole', 'setuserrole', async function (client = new Client(), { fr
 })
 
 handler.help = ['bass <db>?']
-handler.tags = ['dowloader']
+handler.tags = ['downloader']
 handler.customPrefix = /(\?$)/
 handler.command = /^apakah$/i
 handler.owner = false
