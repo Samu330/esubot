@@ -92,6 +92,11 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 *║┊:* @Samu330
 *╰═┅ৡৢ͜͡✦═══╡𝗦𝗮𝗺𝘂𝟯𝟯𝟬╞═══┅ৡৢ͜͡✦═╯*
 %readmore
+📱 *Phone Info* :
+${monospace(`
+🔋 Battery : ${battery}% ${isCharging ? '🔌 Charging...' : '⚡ Discharging'}
+${Object.keys(me.phone).map(key => `${key} : ${me.phone[key]}`).join('\n')}
+`.trim())}
 *╭═┅〘🛑 𝗢𝗯𝗲𝗱𝗲𝗰𝗲 𝗹𝗮𝘀 𝗿𝗲𝗴𝗹𝗮𝘀 🛑〙*
 *▌║✙*❌𝑷𝒓𝒐𝒉𝒊𝒃𝒊𝒅𝒐 𝒍𝒍𝒂𝒎𝒂𝒓 𝒂𝒍 𝒃𝒐𝒕📲
 *▌║✙*❌𝑷𝒓𝒐𝒉𝒊𝒃𝒊𝒅𝒐 𝒔𝒑𝒂𝒎 𝒂𝒍 𝒃𝒐𝒕☢
