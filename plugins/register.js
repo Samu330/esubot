@@ -20,9 +20,9 @@ let handler = async function (m, { text, usedPrefix }) {
   m.reply(`
 「 REGISTRO EXITOSO 」
 ⏥⏥⏥⏥⏥⏥⏥⏥⏥⏥
-⏜⏜⏜⏜⏜⏜⏜⏜⏜⏜⏜⏜⏜⏜⏜⏜
+⏜⏜⏜⏜⏜⏜⏜⏜
 ⌲  *Informacion* 
-⏝⏝⏝⏝⏝⏝⏝⏝⏝⏝⏝⏝⏝⏝⏝⏝
+⏝⏝⏝⏝⏝⏝⏝⏝
 ⏥⏥⏥⏥⏥⏥⏥⏥⏥⏥
 ------------------------------
 ⌬ \`\`\`Nombre: ${name}\`\`\`
