@@ -50,5 +50,6 @@
     "url-regex": "^5.0.0",
     "yargs": "^16.2.0",
     "yt-search": "^2.7.3"
+    "fluent-ffmpeg": "^1.7.0"
   }
 }
