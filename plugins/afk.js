@@ -6,7 +6,7 @@ let handler = (m, { text }) => {
 ${conn.getName(m.sender)} is now AFK${text ? ': ' + text : ''}
 `)
 }
-handler.help = ['afk [alasan]']
+handler.help = ['afk [razón]']
 handler.tags = ['main']
 handler.command = /^afk$/i
 
