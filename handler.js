@@ -158,7 +158,7 @@ module.exports = {
           if (xp > 99) m.reply('Ngecit -_-') // Hehehe
           else m.exp += xp
           if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
-            this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+            this.reply(m.chat, `Su límite ha terminado, compre a través de *${usedPrefix}buy*`, m)
             continue // Limit habis
           }
           try {
@@ -170,6 +170,7 @@ module.exports = {
               args,
               command,
               text,
+              getRandom,
               conn: this,
               participants,
               groupMetadata,
