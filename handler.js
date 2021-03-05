@@ -192,7 +192,7 @@ module.exports = {
             }
           } finally {
             // m.reply(util.format(_user)) 
-            if (m.limit) m.reply(+ m.limit + ' Limit terpakai')
+            if (m.limit) m.reply(+ m.limit + ' Se aplican límites')
           }
     			break
   	  	}
@@ -279,9 +279,9 @@ module.exports = {
     let chat = global.DATABASE._data.chats[m.key.remoteJid]
     if (chat.delete) return
     await this.reply(m.key.remoteJid, `
-Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
+Detectado @${m.participant.split`@`[0]} ha borrado el mensaje
 
-Untuk mematikan fitur ini, ketik
+Para desactivar esta función, escriba
 *.enable delete*
 `.trim(), m.message, {
       contextInfo: {
@@ -294,15 +294,15 @@ Untuk mematikan fitur ini, ketik
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
-    owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    premium: 'Perintah ini hanya untuk member _*Premium*_ !',
-    group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
-    admin: 'Perintah ini hanya untuk *Admin* grup!',
-    botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
-    unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*'
+    rowner: 'Este comando solo puede ser utilizado por _*OWWNER!1!1!*_',
+    owner: 'Este comando solo puede ser utilizado por _*Owner Bot*_!',
+    mods: 'Este comando solo puede ser utilizado por _*Moderator*_ !',
+    premium: 'Este comando es solo para miembros _*Premium*_ !',
+    group: 'Este comando solo se puede usar en grupos!',
+    private: 'Este comando solo se puede usar en chats privados!',
+    admin: 'Este comando es solo para el *Admin*!',
+    botAdmin: 'Haga que el bot sea un *Admin* para usar este comando!',
+    unreg: 'Regístrese para utilizar esta función, escribiendo:\n\n*#reg nombre.edad*\n\nEjemplo: *#reg Samu.17*'
   }[type]
   if (msg) return m.reply(msg)
 }
