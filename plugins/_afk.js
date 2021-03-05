@@ -3,7 +3,7 @@ handler.before = m => {
   let user = global.DATABASE.data.users[m.sender]
   if (user.afk > -1) {
     m.reply(`
-Anda berhenti AFK
+Dejaste AFK
 `.trim())
     user.afk = -1
     user.afkReason = ''
