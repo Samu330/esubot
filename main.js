@@ -64,7 +64,7 @@ if (!opts['test']) setInterval(() => {
 
 if (opts['test']) {
   conn.user = {
-    jid: '2219191@s.whatsapp.net',
+    jid: '5299849@s.whatsapp.net',
     name: 'test',
     phone: {}
   }
@@ -115,8 +115,8 @@ global.reloadHandler = function () {
     conn.off('group-add', conn.onAdd)
     conn.off('group-leave', conn.onLeave)
   }
-  conn.welcome = 'Hai, @user!\nSelamat datang di grup @subject'
-  conn.bye = 'Selamat tinggal @user!'
+  conn.welcome = 'Hola, @user!\nBienvnido al grupo: @subject'
+  conn.bye = 'Bye @user!'
   conn.handler = handler.handler
   conn.onAdd = handler.welcome 
   conn.onLeave = handler.leave
