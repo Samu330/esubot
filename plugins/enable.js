@@ -25,13 +25,13 @@ let handler = async (m, { conn, usedPrefix, command, text, args, isROwner }) => 
       return m.reply(`
 List option: welcome | delete | public | antilink
 
-Contoh:
+Ejemplo:
 ${usedPrefix}enable welcome
 ${usedPrefix}disable welcome
 `.trim())
   }
   m.reply(`
-*${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* untuk ${isAll ? 'bot ini' : 'chat ini'}
+*${type}* se establecio *${isEnable ? 'activado' : 'desactivado'}* en ${isAll ? 'este bot' : 'este chat'}
 `.trim())
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
