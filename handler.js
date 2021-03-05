@@ -170,7 +170,6 @@ module.exports = {
               args,
               command,
               text,
-              getRandom,
               conn: this,
               participants,
               groupMetadata,
