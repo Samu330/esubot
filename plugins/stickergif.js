@@ -36,7 +36,6 @@ let handler = async (m, { conn, args, usedPrefix }) => {
     } else if ((isMedia && m.message.videoMessage.seconds < 11 || isQuotedVideo && m.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
         const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(m).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : m
         const media = await conn.downloadAndSaveMediaMessage(encmedia)
-        const ran = getRandom('.webp')
         await ffmpeg(`./${media}`)
             .inputFormat(media.split('.')[1])
             .on('start', function (cmd) {
