@@ -9,8 +9,8 @@ let handler = async (m, { conn, text }) => {
   if(!text && !m.quoted) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nTag user, tulis nomor, atau balas member yang ingin diberi _warning_`, m)
   //let exists = await conn.isOnWhatsApp(number)
   // if (exists) return conn.reply(m.chat, `*Nomor target tidak terdaftar di WhatsApp*`, m)
-  if(isNaN(number)) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nNomor yang kamu masukkan tidak valid !`, m)
-  if(number.length > 15) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nNomor yang kamu masukkan tidak valid !`, m)
+  if(isNaN(number)) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nEl número que ingresaste no es válido !`, m)
+  if(number.length > 15) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nEl número que ingresaste no es válido !`, m)
   try {
 		if(text) {
 			var user = number + '@s.whatsapp.net'
@@ -41,7 +41,7 @@ let handler = async (m, { conn, text }) => {
 	let isAdmin = users.isAdmin || users.isSuperAdmin || false
 	let number = user.split('@')[0]
 
-	if(isAdmin) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nTidak bisa memberikan warning kepada sesama admin !`, m)
+	if(isAdmin) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nNo se puede dar una advertencia a otros administradores. !`, m)
   
 	
 	global.DATABASE.data.users[user].warning += 1
@@ -53,7 +53,7 @@ let handler = async (m, { conn, text }) => {
  		conn.groupRemove(m.chat, [user])
  	})
  } else {
- 	conn.reply(m.chat, `*[ MEMBER WARNING ]*\n\n@${number} : [ ${warn} / 5 ]\n\nJika sampai mendapatkan warning sampai 5x, kamu akan di kick otomatis !`, null, {contextInfo: {
+ 	conn.reply(m.chat, `*[ MEMBER WARNING ]*\n\n@${number} : [ ${warn} / 5 ]\n\nSi recibe una advertencia 5x, será expulsado automáticamente. !`, null, {contextInfo: {
           mentionedJid: [user]
  	}})
 }
