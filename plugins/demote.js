@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text }) => {
 	if(isNaN(text) && !text.match(/@/g)){
-		return conn.reply(m.chat, `*Uso apropiado*\n\n.demote @user\n.demote -> reply chat`, m)
+		return conn.reply(m.chat, `*Penggunaan yang benar*\n\n.demote @user\n.demote -> reply chat`, m)
 	}else if(isNaN(text)) {
 		var number = text.split`@`[1]
 	}else if(!isNaN(text)) {
@@ -24,3 +24,15 @@ try {
 			conn.reply(m.chat, `*Target has demoted.*`, m)
 	}	
 }
+handler.help = ['*62xx*','*@user*','*(reply)*'].map(v => 'demote ' + v)
+handler.tags = ['group admin']
+handler.command = /^(demote)$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = true
+handler.private = false
+handler.admin = true
+handler.botAdmin = true
+handler.fail = null
+module.exports = handler
