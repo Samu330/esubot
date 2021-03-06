@@ -6,7 +6,7 @@ let handler = async (m, { conn, text }) => {
 		var number = text
   }
 
-  if(!text && !m.quoted) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nTag user, tulis nomor, atau balas member yang ingin diberi _warning_`, m)
+  if(!text && !m.quoted) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nEtiquete al usuario, anote el número o responda al miembro que desea dar _warning_`, m)
   //let exists = await conn.isOnWhatsApp(number)
   // if (exists) return conn.reply(m.chat, `*Nomor target tidak terdaftar di WhatsApp*`, m)
   if(isNaN(number)) return conn.reply(m.chat, `*[ WARN ERROR ]*\n\nEl número que ingresaste no es válido !`, m)
@@ -29,6 +29,7 @@ let handler = async (m, { conn, text }) => {
 			limit: 10,
 			lastclaim: 0,
 			warning: 0,
+			chat: 0,
 			whitelist: false,
 			isBanned: false,
 			spam: 0
@@ -53,7 +54,7 @@ let handler = async (m, { conn, text }) => {
  		conn.groupRemove(m.chat, [user])
  	})
  } else {
- 	conn.reply(m.chat, `*[ MEMBER WARNING ]*\n\n@${number} : [ ${warn} / 5 ]\n\nSi recibe una advertencia 5x, será expulsado automáticamente. !`, null, {contextInfo: {
+ 	conn.reply(m.chat, `*[ MEMBER WARNING ]*\n\n@${number} : [ ${warn} / 5 ]\n\n*Si recibe una advertencia 5x, será expulsado automáticamente.* !`, null, {contextInfo: {
           mentionedJid: [user]
  	}})
 }
