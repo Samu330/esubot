@@ -8,6 +8,7 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
   .then(res => res.json())
   .then(batch => {
     conn.updatePresence(m.chat, Presence.composing)
+  conn.reply(m.chat, `${batch.success}`, m)
   }) .catch(() => { conn.reply(m.chat, `_¡La función simi es errónea! Perdón :(_`, m) })
 }
 handler.help = ['simi','s'].map(v => v + ' *text*')
