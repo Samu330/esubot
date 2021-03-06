@@ -7,8 +7,7 @@ let handler  = async (m, { conn, args, usedPrefix, command }) => {
 	fetch("https://simsumi.herokuapp.com/api?text=" + encodeURIComponent(text) + "&lang=id")
   .then(res => res.json())
   .then(batch => {
-    conn.updatePresence(m.chat, Presence.composing) 
-    conn.reply(m.chat, `${batch.success}`, m)
+    conn.updatePresence(m.chat, Presence.composing)
   }) .catch(() => { conn.reply(m.chat, `_¡La función simi es errónea! Perdón :(_`, m) })
 }
 handler.help = ['simi','s'].map(v => v + ' *text*')
