@@ -1,5 +1,5 @@
 let handler  = async (m, { conn }) => {
-	conn.sendFile(m.chat, 'media/iametekurazai.mp3', m)
+	conn.sendFile(m.chat, 'media/iametekurazai.mp3', 'tts.opus', null, m, true)
 }
 handler.help = ['']
 handler.tags = []
