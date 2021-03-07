@@ -150,7 +150,7 @@ module.exports = {
           if (plugin.register == true && _user.registered == false) { // Necesita una lista?
             fail('unreg', m, this)
             continue
-          
+          }
           try {
             await plugin.call(this, m, {
               match,
