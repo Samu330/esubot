@@ -1,5 +1,5 @@
 let handler  = async (m, { conn }) => {
-	conn.sendFile(m.chat, 'media/Music/The Happy Troll (Griefing Theme Song)_-bcUyBUylzs.mp3',, m)
+	conn.sendFile(m.chat, 'media/Music/The Happy Troll (Griefing Theme Song)_-bcUyBUylzs.mp3', m)
 }
 handler.help = ['']
 handler.tags = []
