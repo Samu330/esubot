@@ -3,7 +3,7 @@ let fs = require('fs')
 let path = require('path')
 let { spawn } = require('child_process')
 let handler  = async (m, { conn }) => {
-	conn.sendFile(m.chat, 'media/iametekurazai.mp3', 'tts.opus', null, m, true)
+	conn.sendFile(m.chat, 'media/iametekurazai.mp3', 'tts.mp3', null, m, true)
 }
 handler.help = ['']
 handler.tags = []
