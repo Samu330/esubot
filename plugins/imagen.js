@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 
-let handler = async(m, { conn, args, command, usedPrefix, }) => {
+let handler = async(m, { conn, args, command, usedPrefix }) => {
   let text = args.join
   fetch('http://api.fdci.se/sosmed/rep.php?gambar=' + encodeURIComponent(text))
   let images = body.split('\n')
