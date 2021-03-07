@@ -150,16 +150,7 @@ module.exports = {
           if (plugin.register == true && _user.registered == false) { // Necesita una lista?
             fail('unreg', m, this)
             continue
-          }
-
-          m.isCommand = true
-          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 9 // XP Earning per command
-          if (xp > 99)
-          else m.exp += xp
-          if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
-            this.reply(m.chat, `Su límite ha terminado, compre a través de *${usedPrefix}buy*`, m)
-            continue // Limit habis
-          }
+          
           try {
             await plugin.call(this, m, {
               match,
