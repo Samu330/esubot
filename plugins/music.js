@@ -4,7 +4,7 @@ let handler  = async (m, { conn }) => {
 handler.help = ['']
 handler.tags = []
 handler.command = /^(music)$/i
-handler.owner = true
+handler.owner = false
 handler.mods = false
 handler.premium = false
 handler.group = false
@@ -13,4 +13,4 @@ handler.admin = false
 handler.botAdmin = false
 handler.fail = null
 handler.exp = 100
-module.exports = 
+module.exports = handler
