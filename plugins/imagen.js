@@ -13,7 +13,7 @@ let handler = async(m, { conn, args, command, usedPrefix, }) => {
 
 handler.help = ['imagen']
 handler.tags = ['downloader']
-handler.command = /^(imagen)$/i
+handler.command = /^(imagen|img)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
