@@ -1,5 +1,5 @@
 let handler = async (m, { conn }) => {
-  let ownerGroup = m.chat.split`-`[0] + '@s.whatsapp.net'
+  let admin = m.chat.split`-`[0] + '@s.whatsapp.net'
   let users = (await conn.fetchGroupMetadataFromWA(m.chat)).participants.map(u => u.jid)
   conn.reply(m.chat, `*[ TODOS ]*\n\n*${conn.getName(m.chat)},'  ○ @' + v.replace(/@.+/, '')).join('\n')}`, m})
   
