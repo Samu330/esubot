@@ -14,14 +14,13 @@ module.exports = {
           if (!isNumber(user.exp)) user.exp = 0
           if (!isNumber(user.limit)) user.limit = 10
           if (!isNumber(user.lastclaim)) user.lastclaim = 0
-          if (!'registered' in user) user.registered = false
+          if (!'registered' in user) user.registered = true
           if (!user.registered) {
             if (!'name' in user) user.name = this.getName(m.sender)
             if (!isNumber(user.age)) user.age = -1
             if (!isNumber(user.regTime)) user.regTime = -1
           }
-          if (!isNumber(user.afk)) user.afk = -1
-          if (!'afkReason' in user) user.afkReason = ''
+          
         } else global.DATABASE._data.users[m.sender] = {
           exp: 0,
           limit: 10,
@@ -148,14 +147,14 @@ module.exports = {
             fail('private', m, this)
             continue
           }
-          if (plugin.register == true && _user.registered == false) { // Butuh daftar?
+          if (plugin.register == true && _user.registered == false) { // Necesita una lista?
             fail('unreg', m, this)
             continue
           }
 
           m.isCommand = true
           let xp = 'exp' in plugin ? parseInt(plugin.exp) : 9 // XP Earning per command
-          if (xp > 99) m.reply('Ngecit -_-') // Hehehe
+          if (xp > 99)
           else m.exp += xp
           if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
             this.reply(m.chat, `Su límite ha terminado, compre a través de *${usedPrefix}buy*`, m)
