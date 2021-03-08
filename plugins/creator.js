@@ -1,6 +1,6 @@
 let { Presence } = require('@adiwajshing/baileys')
 let handler  = async (m, { conn }) => {
-	m.reply(m.chat, 'media/esu.jpg', '*BOT: _Esubot_\n\nCuztom🐬', m)
+	conn.sendFile(m.chat, 'media/esu.jpg', '*BOT: _Esubot_\n\nCuztom🐬', m)
 	m.reply(`wa.me//+529984907794
 👑Samu330👑`.trim())
 }
