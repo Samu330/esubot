@@ -1,5 +1,14 @@
 let handler  = async (m, { conn }) => {
-  conn.sendFile(m.chat,`“${pickRandom(global.belle)}”`, m)
+  conn.sendFile(m.chat,`“${pickRandom("media/belle/belle1.png",
+  "media/belle/belle2.png",
+  "media/belle/belle3.png",
+  "media/belle/belle4.png",
+  "media/belle/belle5.png",
+  "media/belle/belle6.png",
+  "media/belle/belle7.png",
+  "media/belle/belle8.png",
+  "media/belle/belle9.png",
+  "media/belle/belle10.mp4")}”`, m)
 }
 handler.help = ['belle']
 handler.tags = ['images']
@@ -16,21 +25,3 @@ handler.botAdmin = false
 handler.fail = null
 
 module.exports = handler
-
-function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
-}
-
-//packs by samu330
-global.belle = [
-  "media/belle/belle1.png",
-  "media/belle/belle2.png",
-  "media/belle/belle3.png",
-  "media/belle/belle4.png",
-  "media/belle/belle5.png",
-  "media/belle/belle6.png",
-  "media/belle/belle7.png",
-  "media/belle/belle8.png",
-  "media/belle/belle9.png",
-  "media/belle/belle10.mp4"
-  ]
