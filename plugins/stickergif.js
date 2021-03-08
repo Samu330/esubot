@@ -69,7 +69,7 @@ let handler = async (m, { conn, args, usedPrefix }) => {
             fs.writeFileSync(ranp, buffer, (err) => {
                 if (err) return reply('Falló, se produjo un error, inténtelo de nuevo más tarde del.')
             })
-            exec(`ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -author: 'AUTOR' -pack: 'NOMBRE DEL PACK' -preset default -an -vsync 0 -s 512:512 ${ranw}`, (err) => {
+            exec(`ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${ranw}`, (err) => {
                 fs.unlinkSync(ranp)
                 if (err) return m.reply('Error!')
                 buff = fs.readFileSync(ranw)
