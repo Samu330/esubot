@@ -1,9 +1,7 @@
 let { Presence } = require('@adiwajshing/baileys')
 let handler  = async (m, { conn }) => {
-	await conn.updatePresence(m.chat, Presence.composing) 
-let name = '👑Samu330👑'
-let number = 'wa.me//+529984907794'
-	m.reply(m.chat, name, number, m)
+	m.reply(`wa.me//+529984907794
+👑Samu330👑`.trim())
 	conn.sendFile(m.chat, 'media/esu', "*Bot: Esubot*\n\n_Mantenimiento por:_\n\n👑Samu330👑", m)
 }
 
