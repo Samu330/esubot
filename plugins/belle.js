@@ -1,5 +1,5 @@
 let handler  = async (m, { conn }) => {
-  conn.sendFile(m.chat,`“${pickRandom("media/belle/belle1.png",
+  conn.sendFile(m.chat,`“${Random("media/belle/belle1.png",
   "media/belle/belle2.png",
   "media/belle/belle3.png",
   "media/belle/belle4.png",
