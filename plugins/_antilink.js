@@ -6,7 +6,6 @@ handler.before = m => {
   let chat = global.DATABASE.data.chats[m.chat]
   let isGroupLink = linkRegex.exec(m.text)
   if (chat.antiLink && isGroupLink) m.reply('Eliminando!') 
-  await conn.groupRemove(m.chat, [user])
   return true
  } 
 }
