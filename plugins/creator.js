@@ -1,10 +1,7 @@
-let { Presence } = require('@adiwajshing/baileys')
-let handler  = async (m, { conn }) => {
-	conn.sendFile(m.chat, 'media/esu.jpg', '*BOT: _Esubot_\n\nCuztom🐬', m)
-	m.reply(`wa.me//+529984907794
-👑Samu330👑`.trim())
+let handler = function (m) {
+  // this.sendContact(m.chat, '6281515860089', 'Nurutomo', m)
+  this.sendContact(m.chat, '14964222222', '👑Samu330👑', m)
 }
-
 handler.help = ['owner', 'creator']
 handler.tags = ['info']
 
