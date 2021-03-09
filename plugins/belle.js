@@ -1,8 +1,7 @@
 let handler  = async (m, { conn }) => {
  
   //conn.sendFile(m.chat,`${Random('media/belle/belle3.png', 'media/belle/belle2.png', 'media/belle/belle3.png', 'media/belle/belle4.png', 'media/belle/belle5.png', 'media/belle/belle6.png', 'media/belle/belle7.png', 'media/belle/belle8.png', 'media/belle/belle9.png',)}`, m)
- let randombelle = body.split('\n') 
- let random ='media/belle'[Math.floor(Math.random() * randombelle.length)]
+ let random ='media/belle'[Math.floor(Math.random())]
   conn.sendFile(m.chat, random, '', 'error xd pto!! ', m)
 }
 handler.help = ['belle']
