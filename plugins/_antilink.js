@@ -11,4 +11,4 @@ handler.before = m => {
   return true
 }
 
-module.exports = 
+module.exports = handler
