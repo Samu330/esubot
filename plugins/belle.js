@@ -1,5 +1,6 @@
 let handler  = async (m, { conn }) => {
-  conn.sendFile(m.chat, 'media/belle/belle5.png', m)
+ 
+  conn.sendFile(m.chat,`${pickRandom('media/belle/belle3.png', 'media/belle/belle2.png', 'media/belle/belle3.png', 'media/belle/belle4.png', 'media/belle/belle5.png', 'media/belle/belle6.png', 'media/belle/belle7.png', 'media/belle/belle8.png', 'media/belle/belle9.png',)}`, m)
 }
 handler.help = ['belle']
 handler.tags = ['images']
