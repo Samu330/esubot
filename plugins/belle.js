@@ -1,9 +1,14 @@
 let handler  = async (m, { conn }) => {
+let handler = async(m, { conn, args, command, usedPrefix }) => {
  
   //conn.sendFile(m.chat,`${Random('media/belle/belle3.png', 'media/belle/belle2.png', 'media/belle/belle3.png', 'media/belle/belle4.png', 'media/belle/belle5.png', 'media/belle/belle6.png', 'media/belle/belle7.png', 'media/belle/belle8.png', 'media/belle/belle9.png',)}`, m)
  let random ='media/belle'[Math.floor(Math.random())]
   conn.sendFile(m.chat, random, '', 'error xd pto!! ', m)
-}
+ }).catch(() => {
+    conn.reply(m.chat, ` !`, m)
+  })
+ }
+
 handler.help = ['belle']
 handler.tags = ['images']
 handler.command = /^(belle)$/i
