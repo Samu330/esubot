@@ -8,7 +8,7 @@ handler.before = m => {
   let isGroupLink = linkRegex.exec(m.text)
 
   if (chat.antiLink && isGroupLink) m.reply('Eliminando!')
-  for (let user of users) if (user.endsWith('@s.whatsapp.net')) await conn.groupRemove(m.chat, [user])
+  await conn.groupRemove(m.chat, [user])
   return true
   
 }
