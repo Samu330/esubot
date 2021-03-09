@@ -14,13 +14,14 @@ module.exports = {
           if (!isNumber(user.exp)) user.exp = 0
           if (!isNumber(user.limit)) user.limit = 10
           if (!isNumber(user.lastclaim)) user.lastclaim = 0
-          if (!'registered' in user) user.registered = true
+          if (!'registered' in user) user.registered = false
           if (!user.registered) {
             if (!'name' in user) user.name = this.getName(m.sender)
             if (!isNumber(user.age)) user.age = -1
             if (!isNumber(user.regTime)) user.regTime = -1
           }
-          
+          if (!isNumber(user.afk)) user.afk = -1
+          if (!'afkReason' in user) user.afkReason = ''
         } else global.DATABASE._data.users[m.sender] = {
           exp: 0,
           limit: 10,
@@ -53,7 +54,7 @@ module.exports = {
         console.log(e, global.DATABASE.data)
       }
       if (!m.fromMe && opts['self']) return
-      if (!m.text) return
+      if (typeof m.text !== 'string') m.text = ''
       if (m.isBaileys) return
       m.exp += 1
   
@@ -69,7 +70,7 @@ module.exports = {
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {} // User Data
       let bot = m.isGroup ? participants.find(u => u.jid == this.user.jid) : {} // Your Data
       let isAdmin = user.isAdmin || user.isSuperAdmin || false // Is User Admin?
-      let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false // Are you Admin?
+      let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || true // Are you Admin?
     	for (let name in global.plugins) {
     	  let plugin = global.plugins[name]
         if (!plugin) continue
@@ -147,10 +148,11 @@ module.exports = {
             fail('private', m, this)
             continue
           }
-          if (plugin.register == true && _user.registered == false) { // Necesita una lista?
+          if (plugin.register == true && _user.registered == false) { // Butuh daftar?
             fail('unreg', m, this)
             continue
           }
+
           m.isCommand = true
           let xp = 'exp' in plugin ? parseInt(plugin.exp) : 9 // XP Earning per command
           if (xp > 99)
@@ -189,7 +191,7 @@ module.exports = {
             }
           } finally {
             // m.reply(util.format(_user)) 
-            if (m.limit) m.reply(+ m.limit + ' Se aplican límites')
+            if (m.limit) m.reply(+ m.limit + 'Se aplican límites🐬')
           }
     			break
   	  	}
@@ -277,7 +279,6 @@ module.exports = {
     if (chat.delete) return
     await this.reply(m.key.remoteJid, `
 Detectado @${m.participant.split`@`[0]} ha borrado el mensaje
-
 Para desactivar esta función, escriba
 *.enable delete*
 `.trim(), m.message, {
