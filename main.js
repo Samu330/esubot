@@ -4,7 +4,7 @@ let { generate } = require('qrcode-terminal')
 let { spawnSync } = require('child_process')
 let syntaxerror = require('syntax-error')
 let simple = require('./lib/simple')
-//  let logs = require('./lib/logs')
+let logs = require('./lib/logs')
 let yargs = require('yargs/yargs')
 let Readline = require('readline')
 let qrcode = require('qrcode')
@@ -115,8 +115,8 @@ global.reloadHandler = function () {
     conn.off('group-add', conn.onAdd)
     conn.off('group-leave', conn.onLeave)
   }
-  conn.welcome = 'Hola, @user!\nBienvnido al grupo: @subject'
-  conn.bye = 'Bye @user!'
+  conn.welcome = 'Hola, @user!\nBienvenido al grupo @subject'
+  conn.bye = 'Adios @user!'
   conn.handler = handler.handler
   conn.onAdd = handler.welcome 
   conn.onLeave = handler.leave
@@ -199,4 +199,3 @@ Object.freeze(global.support)
 if (!global.support.ffmpeg) conn.logger.warn('Please install ffmpeg for sending videos (pkg install ffmpeg)')
 if (!global.support.ffmpegWebp) conn.logger.warn('Stickers may not animated without libwebp on ffmpeg (--emable-ibwebp while compiling ffmpeg)')
 if (!global.support.convert) conn.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick)')
-
