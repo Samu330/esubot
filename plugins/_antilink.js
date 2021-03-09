@@ -1,33 +1,16 @@
-let { Presence } = require('@adiwajshing/baileys')
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-	
-	if(!args || !args[0]) {
-		await conn.updatePresence(m.chat, Presence.composing) 
-		conn.reply(m.chat, `*¡Formato incorrecto! Ejemplo :*\n\n	*${usedPrefix + command} on*\n	*○ ${usedPrefix + command} off*`, m)
-	} else if(args[0] == 'on') {
-		let cek = global.DATABASE._data.chats[m.chat].nolink
-	if(cek) return conn.reply(m.chat, `*Anti Link activo en este grupo.*\n*Share Link GC = Kick !!!*`, m)
-		await conn.updatePresence(m.chat, Presence.composing) 
-		global.DATABASE._data.chats[m.chat].nolink = true
-		conn.reply(m.chat, `*Anti Link activado con éxito.*\n*Share Link GC = Kick !!!*`, m)
-	} else if(args[0] == 'off') {
-		let cek = global.DATABASE._data.chats[m.chat].nolink
+let handler = m => m
 
-	if(!cek) return conn.reply(m.chat, `*Anti Link ha sido inhabilitado en este grupo.*`, m)
-		await conn.updatePresence(m.chat, Presence.composing) 
-		global.DATABASE._data.chats[m.chat].nolink = false
-		conn.reply(m.chat, `*Anti Link desactivado con éxito.*`, m)
-	} else {
-		await conn.updatePresence(m.chat, Presence.composing) 
-		conn.reply(m.chat, `*¡Formato incorrecto! Ejemplo :*\n\n	*${usedPrefix + command} on*\n	*○ ${usedPrefix + command} off*`, m)
-	} 
+let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
+handler.before = m => {
+  if (m.isBaileys && m.fromMe) return true
+  let users = m.mentionedJid.filter(u => !(u == ownerGroup || u.includes(conn.user.jid)))
+  let chat = global.DATABASE.data.chats[m.chat]
+  let isGroupLink = linkRegex.exec(m.text)
+
+  if (chat.antiLink && isGroupLink) m.reply('Eliminando!')
+
+  return true
+  for (let user of users) if (user.endsWith('@s.whatsapp.net')) await conn.groupRemove(m.chat, [user])
 }
-handler.help = ['antilink *on/off*']
-handler.tags = ['group admin']
-handler.command = /^(antilink)$/i
-handler.owner = false
-handler.admin = true
-handler.botAdmin = true
-handler.exp = 0
-handler.limit = false
+
 module.exports = handler
