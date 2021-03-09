@@ -1,6 +1,5 @@
-let handler = m => m
 let handler = async (m, { conn, args }) => {
-
+  
 let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
 handler.before = m => {
   if (m.isBaileys && m.fromMe) return true
