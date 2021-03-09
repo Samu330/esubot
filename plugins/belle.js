@@ -1,5 +1,5 @@
 let handler  = async (m, { conn }) => {
-  conn.sendFile(m.chat, 'media/belle/belle10.mp4', m)
+  conn.sendFile(m.chat, 'media/belle/belle5.png', m)
 }
 handler.help = ['belle']
 handler.tags = ['images']
