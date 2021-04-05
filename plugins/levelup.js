@@ -6,12 +6,12 @@ let handler = m => {
     let { min, xp, max } = levelling.xpRange(user.level, global.multiplier)
     throw `
 Level *${user.level} (${user.exp - min}/${xp})*
-Kurang *${max - user.exp}* lagi!
+Menos *${max - user.exp}* otra vez!
 `.trim()
   }
   user.level++
   m.reply(`
-Selamat, anda telah naik level!
+Felicitaciones, has subido de nivel!
 *${user.level - 1}* -> *${user.level}*
   `.trim())
 }
