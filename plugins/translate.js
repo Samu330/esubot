@@ -14,7 +14,7 @@ let handler = async (m, { text, usedPrefix }) => {
             tld: "cn",
             to: `${to}`,
         })
-        m.reply(`Pesan: ${trans}\n\nTerjemahan: ${result[0]}`)
+        m.reply(`Frase: ${trans}\n\nTraduccion: ${result[0]}`)
         console.log(result[0])
     } catch (e) {
         throw goblok
