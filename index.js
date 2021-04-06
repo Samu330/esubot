@@ -3,12 +3,6 @@ let { spawn } = require('child_process')
 let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
-const CFonts  = require('cfonts')
-CFonts.say('EsuBot\nSamu330', {
-  font: 'chrome',
-  align: 'center',
-  gradient: ['red', 'magenta']
-})
 
 /**
  * Start a js file
@@ -16,11 +10,9 @@ CFonts.say('EsuBot\nSamu330', {
  */
 function start(file) {
   let args = [path.join(__dirname, file), ...process.argv.slice(2)]
-  CFonts.say([process.argv[0], ...args].join(' '), {
-    font: 'console',
-    align: 'center',
-    gradient: ['red', 'magenta']
-  })
+
+
+
   let p = spawn(process.argv[0], args, {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc']
   })
