@@ -1,13 +1,13 @@
 // ariffb - http:/wa.me/6283128734012
 const translate = require('translate-google-api')
 let handler = async (m, { text, usedPrefix }) => {
-    goblok = `contoh: \n${usedPrefix}tr kode bahasa|teks\n${usedPrefix}tr id|thankyou\n\nBahasa yang didukung: https://cloud.google.com/translate/docs/language`
+    goblok = `ejemplo: \n${usedPrefix}tr codigo de idioma|texts\n${usedPrefix}tr en|thankyou\n\nIdiomas admitidos: https://cloud.google.com/translate/docs/language`
     if (!text) throw goblok
 
     let [to, trans] = text.split`|`
 
-    if (!to) throw `Silahkan masukan kode bahasa\ncontoh: \n\n${usedPrefix}tr id|thankyou\n\nBahasa yang didukung: https://cloud.google.com/translate/docs/language`
-    if (!trans) throw `Silahkan masukan kalimat yang ingin diterjemahkan\ncontoh: \n\n${usedPrefix}tr id|thankyou`
+    if (!to) throw `Por favor ingrese el código de idioma\nejemplo: \n\n${usedPrefix}tr en|thankyou\n\nIdiomas admitidos: https://cloud.google.com/translate/docs/language`
+    if (!trans) throw `Por favor ingrese la frase que desea traducir.\nejemplo: \n\n${usedPrefix}tr en|thankyou`
 
     try {
         const result = await translate(`${trans}`, {
@@ -21,7 +21,7 @@ let handler = async (m, { text, usedPrefix }) => {
     }
 
 }
-handler.help = ['translate'].map(v => v + ' <to>|<teks>')
+handler.help = ['translate'].map(v => v + ' <to>|<texts>')
 handler.tags = ['tools']
 handler.command = /^(tr(anslate)?)$/i
 handler.owner = false
