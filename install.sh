@@ -12,8 +12,8 @@ echo -e '\033[0m\033[1;32m
  | .__/   \__,_|  \__, |  \__,_|  \___|  \__|  \___| |___/
  |_|                 |_|                                  
 \033[0m'
-pkg update && upgrade -y
-pkg install nodejs -y
+pkg update && upgrade
+pkg install nodejs
 echo -e '\033[0m\033[1;31m
   ___                 _             _                       _         
  |_ _|  _ __    ___  | |_    __ _  | |   __ _   _ __     __| |   ___  
@@ -28,8 +28,9 @@ echo -e '\033[0m\033[1;31m
  |_|   |_|   |_| |_| |_| | .__/   \___|  \__, |
                          |_|             |___/ 
 \033[0m'
-pkg install ffmpeg -y
-pkg install imagemagick -y
+pkg install ffmpeg
+pkg install imagemagick
+npm install @adiwajshing/baileys
 pkg install termimage
 npm install
 echo -e '\033[0m\033[1;31m
