@@ -3,7 +3,10 @@ let simple = require('./lib/simple')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 module.exports = {
-  async handler(m) {
+  async handler(chatUpdate) {
+    if (!chatUpdate.hasNewMessage) return
+    if (!chatUpdate.messages && !chatUpdate.count) return
+    let m = chatUpdate.messages.all()[0]
     try {
     	simple.smsg(this, m)
       m.exp = 0
@@ -22,6 +25,9 @@ module.exports = {
           }
           if (!isNumber(user.afk)) user.afk = -1
           if (!'afkReason' in user) user.afkReason = ''
+          if (!'banned' in user) user.banned = false
+          if (!isNumber(user.level)) user.level = 0
+          if (!'autolevelup' in user) user.autolevelup = false
         } else global.DATABASE._data.users[m.sender] = {
           exp: 0,
           limit: 10,
@@ -31,7 +37,10 @@ module.exports = {
           age: -1,
           regTime: -1,
           afk: -1,
-          afkReason: ''
+          afkReason: '',
+          banned: false,
+          level: 0,
+          autolevelup: false,
         }
     
         let chat
@@ -53,10 +62,11 @@ module.exports = {
       } catch (e) {
         console.log(e, global.DATABASE.data)
       }
+      if (opts['nyimak']) return
       if (!m.fromMe && opts['self']) return
       if (typeof m.text !== 'string') m.text = ''
       if (m.isBaileys) return
-      m.exp += 1
+      m.exp += Math.ceil(Math.random() * 10)
   
     	let usedPrefix
       let _user = global.DATABASE.data && global.DATABASE.data.users && global.DATABASE.data.users[m.sender]
@@ -70,7 +80,7 @@ module.exports = {
       let user = m.isGroup ? participants.find(u => u.jid == m.sender) : {} // User Data
       let bot = m.isGroup ? participants.find(u => u.jid == this.user.jid) : {} // Your Data
       let isAdmin = user.isAdmin || user.isSuperAdmin || false // Is User Admin?
-      let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || true // Are you Admin?
+      let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false // Are you Admin?
     	for (let name in global.plugins) {
     	  let plugin = global.plugins[name]
         if (!plugin) continue
@@ -91,7 +101,7 @@ module.exports = {
               [[[], new RegExp]]
         ).find(p => p[1])
         if (typeof plugin.before == 'function') if (await plugin.before.call(this, m, {
-          match, _user, groupMetadata
+          match, user, groupMetadata, chatUpdate
         })) continue
     	  if ((usedPrefix = (match[0] || '')[0])) {
           let noPrefix = m.text.replace(usedPrefix, '')
@@ -114,9 +124,15 @@ module.exports = {
 
     			if (!isAccept) continue
           m.plugin = name
-          if (m.chat in global.DATABASE._data.chats) {
+          if (m.chat in global.DATABASE._data.chats || m.sender in global.DATABASE._data.users) {
             let chat = global.DATABASE._data.chats[m.chat]
+            let user = global.DATABASE._data.users[m.sender]
             if (name != 'unbanchat.js' && chat && chat.isBanned) return // Except this
+            if (name != 'unbanuser.js' && user && user.banned) return
+          }
+          if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { // Both Owner
+            fail('owner', m, this)
+            continue
           }
           if (plugin.rowner && !isROwner) { // Real Owner
             fail('rowner', m, this)
@@ -154,11 +170,12 @@ module.exports = {
           }
 
           m.isCommand = true
-          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 9 // XP Earning per command
-          if (xp > 99)
+          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // XP Earning per command
+          //if (xp > 200) m.reply(':3')
+          else m.exp += xp
           if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
             this.reply(m.chat, `Su límite ha terminado, compre a través de *${usedPrefix}buy*`, m)
-            continue
+            continue // Limit habis
           }
           try {
             await plugin.call(this, m, {
@@ -172,11 +189,14 @@ module.exports = {
               conn: this,
               participants,
               groupMetadata,
+              user,
+              bot,
               isROwner,
               isOwner,
               isAdmin,
               isBotAdmin,
-              isPrems
+              isPrems,
+              chatUpdate,
             })
             if (!isPrems) m.limit = m.limit || plugin.limit || false
           } catch (e) {
@@ -191,7 +211,7 @@ module.exports = {
             }
           } finally {
             // m.reply(util.format(_user)) 
-            if (m.limit) m.reply(+ m.limit + 'Se aplican límites🐬')
+            if (m.limit) m.reply(+ m.limit + ' Limit terpakai')
           }
     			break
   	  	}
