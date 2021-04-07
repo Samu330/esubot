@@ -65,7 +65,7 @@ if (!opts['test']) setInterval(() => {
 
 if (opts['test']) {
   conn.user = {
-    jid: '529984@s.whatsapp.net',
+    jid: '2219191@s.whatsapp.net',
     name: 'test',
     phone: {}
   }
