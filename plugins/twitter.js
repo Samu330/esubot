@@ -1,5 +1,4 @@
 let handler = async (m, { conn, args }) => {
-  throw
   if (!args[0]) throw 'Uhm... Y ek link?'
   global.API('xteam', '/dl/twitter', {
     url: args[0]
