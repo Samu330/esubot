@@ -10,7 +10,7 @@ handler.before = function (m, { user }) {
     m.reply('Eliminando!!')
     if (global.opts['restrict']) {
        if (!user.isAdmin) return true
-       this.groupRemove(m.chat, [m.sender])
+       conn.groupRemove(m.chat, [m.sender])
     }
   }
   return true
