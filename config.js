@@ -12,8 +12,8 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = '❣️𝗦𝗮𝗺 𝗬 𝗣𝗲𝗿𝗿𝘆❣️\n🔥EsuBot🔥'
-global.author = '🔐𝐒𝐚𝐦𝐮𝟑𝟑𝟎 👑'
+global.packname = '❣️𝗦𝗮𝗺 𝗬 𝗣𝗲𝗿𝗿𝘆❣️\n  🔥EsuBot🔥'
+global.author = '🔐𝐒𝐚𝐦𝐮𝟑𝟑𝟎👑\n   ❣️'
 
 global.multiplier = 69 // The higher, The harder levelup
 
