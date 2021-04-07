@@ -1,6 +1,6 @@
 let handler  = async (m, { conn }) => {
         samu: './belle.jpg' 
-	conn.sendFile(m.chat, 'samu', 'mas como esta:3\nhttps://www.mediafire.com/folder/dnvq5v1ntsp36/Dephine+By+Sm330' m)
+	conn.sendFile(m.chat, 'samu', '', 'https://www.mediafire.com/folder/dnvq5v1ntsp36/Dephine+By+Sm330', m)
 }
 
 handler.help = ['belle']
