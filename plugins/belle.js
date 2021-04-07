@@ -1,5 +1,5 @@
 let handler  = async (m, { conn }) => {
-        samu: './belle.jpg' 
+        samu: 'media/belle.jpg' 
 	conn.sendFile(m.chat, 'samu', ':3', m)
 }
 
