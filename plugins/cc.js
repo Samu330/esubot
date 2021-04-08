@@ -1,12 +1,15 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, args, command }) => {
 fetch('https://videfikri.com/api/ccgenerator/')
-.then(res => res.json())
-    	.then(json => {
-	if(json.error == false) {
-    conn.reply(m.chat, Json.result.network, m)
-		}
-	
+let json = await res.json()
+  if (!json.result) throw json
+  let { network, number, cvv, pin, balancebalance, expiration_month, expiration_year, name, address, country } = json.result
+  let caption = `
+Net: ${network}
+numero: ${number}
+`.trim()
+  conn.reply(m.chat, caption, m)
+	}
 
 handler.help = ['cc']
 handler.tags = ['tools']
