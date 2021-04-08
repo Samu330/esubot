@@ -3,7 +3,7 @@ let { WAConnection: _WAConnection } = require('@adiwajshing/baileys')
 let { generate } = require('qrcode-terminal')
 let syntaxerror = require('syntax-error')
 let simple = require('./lib/simple')
-let logs = require('./lib/logs')
+//  let logs = require('./lib/logs')
 let { promisify } = require('util')
 let yargs = require('yargs/yargs')
 let Readline = require('readline')
@@ -124,8 +124,8 @@ global.reloadHandler = function () {
     conn.off('group-add', conn.onAdd)
     conn.off('group-leave', conn.onLeave)
   }
-  conn.welcome = 'Hola, @user!\nBienvenido a @subject'
-  conn.bye = 'HAdios @user!'
+  conn.welcome = 'Hola, @user!\nBienvenido al grupo @subject'
+  conn.bye = 'Adios @user!'
   conn.handler = handler.handler
   conn.onAdd = handler.welcome
   conn.onLeave = handler.leave
