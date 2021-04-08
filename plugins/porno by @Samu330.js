@@ -5,7 +5,7 @@ let porn = await axios.get('https://meme-api.herokuapp.com/gimme/porn')
   }
 handler.help = ['porno']
 handler.tags = ['images']
-handler.command = /^(porno|porn)$/i
+handler.command = /^(porno)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
