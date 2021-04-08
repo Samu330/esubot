@@ -3,8 +3,8 @@ let fetch = require('node-fetch')
 
 let handler  = async (m, { conn, text }) => {
 //let text = args.join` `
-//if (!text) return conn.reply(m.chat, 'No hay texto para crear logo', m)
-let url = 'https://google.com/search?q=' + encodeURIComponent(text)
+if (!text) return conn.reply(m.chat, 'No hay texto para crear logo', m)
+let url = 'https://videfikri.com/api/textmaker/coffeecup/?text=' + encodeURIComponent(text)
 
 conn.sendFile(m.chat, url, m)
 
