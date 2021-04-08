@@ -11,7 +11,7 @@ let handler  = async (m, { conn, text }) => {
 
 }
 handler.help = ['coffe' ].map(v => v + ' <texto>')
-handler.tags = ['imagen']
+handler.tags = ['images']
 handler.command = /^coffe?$/i
 handler.owner = false
 handler.mods = false
