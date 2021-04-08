@@ -9,7 +9,7 @@ let url = 'https://google.com/search?q=' + encodeURIComponent(text)
 conn.sendFile(m.chat, url, m)
 
 }
-handler.help = ['coffe' ])
+handler.help = ['coffe']
 handler.tags = ['images']
 handler.command = /^(coffe)?$/i
 handler.owner = false
