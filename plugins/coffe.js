@@ -10,9 +10,9 @@ let handler  = async (m, { conn, text }) => {
   else throw 'Uhm ... El texto?'
 
 }
-handler.help = ['coffe' ].map(v => v + ' <texto>')
+handler.help = ['coffe' ])
 handler.tags = ['images']
-handler.command = /^coffe?$/i
+handler.command = /^(coffe)?$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
