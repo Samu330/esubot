@@ -1,6 +1,11 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, args, command }) => {
-fetch('https://videfikri.com/api/ccgenerator/')
+//fetch('https://videfikri.com/api/ccgenerator/')
+let res = await fetch('https://videfikri.com/api/ccgenerator/',)
+	if (res.status !== 200) {
+    res.text()
+    throw res.status
+  }
 let json = await res.json()
   if (!json.result) throw json
   let { network, number, cvv, pin, balancebalance, expiration_month, expiration_year, name, address, country } = json.result
