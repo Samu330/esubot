@@ -3,9 +3,9 @@ let handler = async(m, { conn, text }) => {
 let les = await axios.get('https://meme-api.herokuapp.com/gimme/lesbians')
             await conn.sendFile(m.chat, `${les.data.url}`, '', `${les.data.title}`, m)
   }
-handler.help = ['porno']
+handler.help = ['lesbian']
 handler.tags = ['images']
-handler.command = /^(porno)$/i
+handler.command = /^(lesbian)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
