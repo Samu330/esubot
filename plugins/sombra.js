@@ -4,7 +4,7 @@ let fetch = require('node-fetch')
 let handler  = async (m, { conn, text }) => {
 //let text = args.join` `
 if (!text) return conn.reply(m.chat, 'No hay texto para crear logo', m)
-if (text) return conn.reply(m.chat, '⌛ *EN PROCESO* ⌛', m)
+//if (text) return conn.reply(m.chat, '⌛ *EN PROCESO* ⌛', m)
 let url = 'https://videfikri.com/api/textmaker/shadowtext/?text=' + encodeURIComponent(text)
 
 conn.sendFile(m.chat, url, m)
