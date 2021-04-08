@@ -258,14 +258,50 @@ module.exports = {
       }
     }
   },
-  
+  async welcome({ m, participants }) {
+    let chat = global.DATABASE._data.chats[m.key.remoteJid]
+    if (!chat.welcome) return
+    for (let user of participants) {
+      let pp = './src/avatar_contact.png'
+      try {
+        pp = await this.getProfilePicture(user)
+      } catch (e) {
+      } finally {
+        let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@user', '@' + user.split('@')[0]).replace('@subject', this.getName(m.key.remoteJid))
+        this.sendFile(m.key.remoteJid, pp, 'pp.jpg', text, m, false, {
+          contextInfo: {
+            mentionedJid: [user]
+          }
+        })
+      }
+    }
+  },
+  async leave({ m, participants }) {
+    let chat = global.DATABASE._data.chats[m.key.remoteJid]
+    if (!chat.welcome) return
+    for (let user of participants) {
+      if (this.user.jid == user) continue
+      let pp = './src/avatar_contact.png'
+      try {
+        pp = await this.getProfilePicture(user)
+      } catch (e) {
+      } finally {
+        let text = (chat.sBye || this.bye || conn.bye || 'Bye, @user!').replace('@user', '@' + user.split('@')[0])
+        this.sendFile(m.key.remoteJid, pp, 'pp.jpg', text, m, false, {
+          contextInfo: {
+            mentionedJid: [user]
+          }
+        })
+      }
+    }
+  },
   async delete(m) {
     if (m.key.fromMe) return
     let chat = global.DATABASE._data.chats[m.key.remoteJid]
     if (chat.delete) return
     await this.reply(m.key.remoteJid, `
-Detectado @${m.participant.split`@`[0]} ha borrado el mensaje
-Para desactivar esta función, escriba
+@${m.participant.split`@`[0]} Si no quiere q aparesca esto, usa:
+Untuk mematikan fitur ini, ketik
 *.enable delete*
 `.trim(), m.message, {
       contextInfo: {
