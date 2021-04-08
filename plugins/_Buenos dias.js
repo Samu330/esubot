@@ -1,9 +1,5 @@
-let gtts = require('node-gtts')
-let fs = require('fs')
-let path = require('path')
-let { spawn } = require('child_process')
 let handler  = async (m, { conn }) => {
-       conn.sendFile(m.chat, 'media/Buenos días.mp3', 'tts.mp3', null, m, true)
+       conn.sendFile(m.chat, 'media/Buenos días.mp3', '', 'xd', m)
 }
 handler.command = /^(bd)$/i
 handler.fail = null
