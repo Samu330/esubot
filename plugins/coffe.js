@@ -11,7 +11,7 @@ conn.sendFile(m.chat, url, m)
 }
 handler.help = ['coffe']
 handler.tags = ['images']
-handler.command = /^(coffe)?$/i
+handler.command = /^coffe?$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
