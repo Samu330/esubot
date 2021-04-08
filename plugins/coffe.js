@@ -1,7 +1,5 @@
 let fetch = require('node-fetch')
-const FormData = require('form-data')
 //plugin by Samu330
-const { MessageType } = require('@adiwajshing/baileys')
 
 let handler  = async (m, { conn, text }) => {
 let text = args.join` `
