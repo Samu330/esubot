@@ -1,5 +1,5 @@
 const axios = require('axios')
-let handler = async(m, { conn, text }) => {
+let handler = async(m, { conn }) => {
 let les = await axios.get('https://meme-api.herokuapp.com/gimme/lesbians')
             conn.sendFile(m.chat, `${les.data.url}`, '', `${les.data.title}`, m)
   }
