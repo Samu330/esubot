@@ -6,7 +6,7 @@ fetch('https://videfikri.com/api/ccgenerator/')
 	if(json.error == false) {
     conn.reply(m.chat, Json.result.network, m)
 }
-  }
+  
 }
 handler.help = ['cc']
 handler.tags = ['tools']
