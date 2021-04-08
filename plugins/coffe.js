@@ -1,13 +1,14 @@
 let fetch = require('node-fetch')
 const FormData = require('form-data')
-
+//plugin by Samu330
 const { MessageType } = require('@adiwajshing/baileys')
 
 let handler  = async (m, { conn, text }) => {
+let text = args.join` `
+if (!text) return conn.reply(m.chat, 'No hay texto para crear logo', m)
+let url = 'https://google.com/search?q=' + encodeURIComponent(text)
 
-  if (text) conn.sendFile(m.chat, ('https://videfikri.com/api/textmaker/coffeecup/?text=' { file: '', text }), m)
-
-  else throw 'Uhm ... El texto?'
+conn.sendFile(m.chat, url, m)
 
 }
 handler.help = ['coffe' ])
