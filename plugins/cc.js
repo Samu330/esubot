@@ -2,7 +2,7 @@ const axios = require('axios')
 
 let handler = async(m, { conn, usedPrefix }) => {
     new Promise((resolve, reject) => {
-        axios.get(`https://mnazria.herokuapp.com/api/check?ip=`)
+        axios.get(`https://videfikri.com/api/ccgenerator/`)
             .then((res) => {
                 const teks = `*[ CC FAKE ]*\n\n➸ *Tarjeta* : ${res.data.network}\n➸ *Numero de tarjeta* : ${res.data.number}`
 
