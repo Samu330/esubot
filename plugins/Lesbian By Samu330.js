@@ -1,7 +1,7 @@
 const axios = require('axios')
 let handler = async(m, { conn, text }) => {
 let les = await axios.get('https://meme-api.herokuapp.com/gimme/lesbians')
-            await conn.sendFile(m.chat, `${les.data.url}`, '', `${les.data.title}`, m)
+            conn.sendFile(m.chat, `${les.data.url}`, '', `${les.data.title}`, m)
   }
 handler.help = ['lesbian']
 handler.tags = ['images']
