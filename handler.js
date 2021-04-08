@@ -51,7 +51,6 @@ module.exports = {
           if (!'sBye' in chat) chat.sBye = ''
           if (!'delete' in chat) chat.delete = true
           if (!'antiLink' in chat) chat.antiLink = false
-          if (!'antiMedia' in chat) chat.antiMedia = false
         } else global.DATABASE._data.chats[m.chat] = {
           isBanned: false,
           welcome: false,
@@ -59,7 +58,6 @@ module.exports = {
           sBye: '',
           delete: true,
           antiLink: false,
-          antiMedia: false,
         }
       } catch (e) {
         console.log(e, global.DATABASE.data)
@@ -173,10 +171,10 @@ module.exports = {
 
           m.isCommand = true
           let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // XP Earning per command
-         // if (xp > 200) m.reply('')
-          //else m.exp += xp
+         // if (xp > 200) m.reply('') 
+         // else m.exp += xp
           if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
-            this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+            this.reply(m.chat, `Sus limites se han agtado, use: *${usedPrefix}buy*`, m)
             continue // Limit habis
           }
           try {
@@ -213,7 +211,7 @@ module.exports = {
             }
           } finally {
             // m.reply(util.format(_user)) 
-            if (m.limit) m.reply(+ m.limit + ' límites aplicados')
+            if (m.limit) m.reply(+ m.limit + ' limites aplicados')
           }
     			break
   	  	}
@@ -300,7 +298,7 @@ module.exports = {
     let chat = global.DATABASE._data.chats[m.key.remoteJid]
     if (chat.delete) return
     await this.reply(m.key.remoteJid, `
-@${m.participant.split`@`[0]} Si no quiere q aparesca esto, usa:
+ @${m.participant.split`@`[0]} use para deshabilitar esta opcion
 Untuk mematikan fitur ini, ketik
 *.enable delete*
 `.trim(), m.message, {
