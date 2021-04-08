@@ -1,20 +1,18 @@
-let fetch = require('node-fetch')
-let handler = async (m, { conn, args, command }) => {
-//fetch('https://videfikri.com/api/ccgenerator/')
-let res = await fetch('https://videfikri.com/api/ccgenerator/',)
-	if (res.status !== 200) {
-    res.text()
-    throw res.status
-  }
-let json = await res.json()
-  if (!json.result) throw json
-  let { network, number, cvv, pin, balancebalance, expiration_month, expiration_year, name, address, country } = json.result
-  let caption = `
-Net: ${network}
-numero: ${number}
-`.trim()
-  conn.reply(m.chat, caption, m)
-	}
+const axios = require('axios')
+
+let handler = async(m, { conn, usedPrefix }) => {
+    new Promise((resolve, reject) => {
+        axios.get(`https://mnazria.herokuapp.com/api/check?ip=`)
+            .then((res) => {
+                const teks = `*[ CC FAKE ]*\n\n➸ *Tarjeta* : ${res.data.network}\n➸ *Numero de tarjeta* : ${res.data.number}`
+
+                conn.reply(m.chat, teks, m)
+
+            })
+            .catch(reject)
+    })
+
+}
 
 handler.help = ['cc']
 handler.tags = ['tools']
