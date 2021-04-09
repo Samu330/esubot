@@ -10,7 +10,7 @@ if (!samu) throw `Ejemplo *.pubg samu|330*`
 if (!text) return conn.reply(m.chat, 'No hay texto para crear logo', m)
 let url = 'https://videfikri.com/api/textmaker/pubgmlogo/?text1=' + `${to}` + '&text2=' + `${samu}`
 
-conn.sendFile(m.chat, url, m)
+conn.sendFile(m.chat, url, '', 'By @Samu330 👑', m)
 
 }
 handler.help = ['pubg']
