@@ -1,18 +1,8 @@
 const axios = require('axios')
-
-let handler = async(m, { conn, usedPrefix }) => {
-    new Promise((resolve, reject) => {
-        axios.get(`https://videfikri.com/api/ccgenerator/`)
-            .then((res) => {
-                const teks = `*[ CC FAKE ]*\n\n➸ *Tarjeta* : ${res.data.network}\n➸ *Numero de tarjeta* : ${res.data.number}`
-
-                conn.reply(m.chat, teks, m)
-
-            })
-            .catch(reject)
-    })
-
-}
+let handler = async(m, { conn }) => {
+    let samu = await axios.get('https://videfikri.com/api/ccgenerator/')
+            conn.reply(m.chat, `${samu.data.network}`, '', `${samu.data.number}`, m)
+  } 
 
 handler.help = ['cc']
 handler.tags = ['tools']
