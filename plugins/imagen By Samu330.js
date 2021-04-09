@@ -3,7 +3,7 @@ let fetch = require('node-fetch')
 
 let handler  = async (m, { conn, text, args }) => {
 
-let url = await fetch(`https://api.fdci.se/sosmed/rep.php?gambar=${args(8)}`)
+let url = await fetch('https://api.fdci.se/sosmed/rep.php?gambar=' + encodeURIComponent(text))
 //let url = await fetch('https://api.fdci.se/sosmed/rep.php?gambar=' + encodeURIComponent(text))
 let samu = await url.json()
 let erest = samu[Math.floor(Math.random() * samu.length)]
