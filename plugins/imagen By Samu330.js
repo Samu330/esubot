@@ -3,10 +3,11 @@ let fetch = require('node-fetch')
 
 let handler  = async (m, { conn, text }) => {
 
-if (!text) return conn.reply(m.chat, '*Porfavor, ingrese lo que desea buscar*', m)
-let url = 'https://api.fdci.se/sosmed/rep.php?gambar=' + encodeURIComponent(text)
+let linp = await fetch(`https://api.fdci.se/sosmed/rep.php?gambar= + encodeURIComponent(text)`)
+let samu = await linp.json()
+            let erest = samu[Math.floor(Math.random() * samu.length)]
+            await conn.sendFile(m.chat, erest, '', '*:D*', m)
 
-conn.sendFile(m.chat, url, m)
 
 }
 handler.help = ['imagen']
