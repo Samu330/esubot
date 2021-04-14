@@ -4,6 +4,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
   try {
     let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
     let tescuk = ["0@s.whatsapp.net"]
+    if (m.key.fromMe) return
     let exp = global.DATABASE.data.users[m.sender].exp
     let limit = global.DATABASE.data.users[m.sender].limit
     let name = conn.getName(m.sender)
