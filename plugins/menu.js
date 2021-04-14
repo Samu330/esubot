@@ -3,6 +3,7 @@ let path = require('path')
 let handler  = async (m, { conn, usedPrefix: _p }) => {
   try {
     let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
+    let tescuk = ["0@s.whatsapp.net"]
     let exp = global.DATABASE.data.users[m.sender].exp
     let limit = global.DATABASE.data.users[m.sender].limit
     let name = conn.getName(m.sender)
@@ -148,7 +149,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).join`|`})`, 'g'), (_, name) => replace[name])
-    conn.sendFile(m.chat, 'media/descarga (2).png', '', text.trim(), contextInfo: {"forwardingScore": 9999, "isForwarded": true}, m)
+    conn.sendFile(m.chat, 'media/descarga (2).png', '', text.trim(), tescuk, m)
   } catch (e) {
     conn.reply(m.chat, 'Lo sentimos, el menú tiene un error', m)
     throw e
