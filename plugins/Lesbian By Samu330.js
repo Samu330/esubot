@@ -1,5 +1,8 @@
 const axios = require('axios')
 let handler = async(m, { conn }) => {
+            let isROwner = [global.conn.user.jid, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+            let isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) {
+    m.reply('Eliminando!!')}
 let les = await axios.get('https://meme-api.herokuapp.com/gimme/lesbians')
             conn.sendFile(m.chat, `${les.data.url}`, '', `${les.data.title}`, m)
   }
