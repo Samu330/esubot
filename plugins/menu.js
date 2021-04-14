@@ -98,7 +98,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 *║┊:* ◦ 🌐Navegador : *${conn.browserDescription[1]}*
 *║┊:* ◦ 📡servidor : *${conn.browserDescription[0]}*
 *║┊:* ◦ ✅version : *${conn.browserDescription[2]}*
-*║┊:* ◦ 🚄Velocidad : *${neww}*
+*║┊:* ◦ 🚄Velocidad : *${neww}* ms
 *║┊:* ◦ 📲Sistema operativo : *${conn.user.phone.device_manufacturer}*
 *║┊:* ◦ 🪀version de *WhatsApp* : ${conn.user.phone.wa_version}
 *║┊:* 👑𝐌𝐲 𝐜𝐚𝐧𝐚𝐥 𝐝𝐞 𝐲𝐨𝐮𝐭𝐮𝐛𝐞
