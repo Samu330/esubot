@@ -96,7 +96,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 *║┊:* ◦ 🌐Navegador : *${conn.browserDescription[1]}*
 *║┊:* ◦ 📡servidor : *${conn.browserDescription[0]}*
 *║┊:* ◦ ✅version : *${conn.browserDescription[2]}*
-*║┊:* ◦ 🚄Velocidad : *%uptime*
+*║┊:* ◦ 🚄Velocidad : *%velocidad*
 *║┊:* ◦ 📲Sistema operativo : *${conn.user.phone.device_manufacturer}*
 *║┊:* ◦ 🪀version de *WhatsApp* : ${conn.user.phone.wa_version}
 *║┊:* 👑𝐌𝐲 𝐜𝐚𝐧𝐚𝐥 𝐝𝐞 𝐲𝐨𝐮𝐭𝐮𝐛𝐞
@@ -135,6 +135,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       version: package.version,
       github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
       exp, limit, name, weton, week, date, time, totalreg,
+      velocidad: performance.now()
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).join`|`})`, 'g'), (_, name) => replace[name])
