@@ -93,12 +93,12 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 *║┊:* 🕐𝘁𝗶𝗲𝗺𝗽𝗼 𝗱𝗲 𝗮𝗰𝘁𝗶𝘃𝗶𝗱𝗮𝗱: *%uptime*
 *║┊:* 💻𝗮𝗰𝘁𝗶𝘃𝗶𝗱𝗮𝗱 𝗽𝗿𝗶𝗻𝗰𝗶𝗽𝗮𝗹 *%muptime*
 *║┊:* 📁𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲: %totalreg numeros
-*║┊:* ◦ 🌐Navegador : *%navegador*
-*║┊:* ◦ 📡servidor : *%conn.browserDescription[0]*
-*║┊:* ◦ ✅version : *%conn.browserDescription[2]*
-*║┊:* ◦ 🚄Velocidad : *%conn.uptime()*
-*║┊:* ◦ 📲Sistema operativo : *%conn.user.phone.device_manufacturer*
-*║┊:* ◦ 🪀version de *WhatsApp* : %conn.user.phone.wa_version
+*║┊:* ◦ 🌐Navegador : *${conn.browserDescription[1]}*
+*║┊:* ◦ 📡servidor : *${conn.browserDescription[0]}*
+*║┊:* ◦ ✅version : *${conn.browserDescription[2]}*
+*║┊:* ◦ 🚄Velocidad : *${conn.uptime()}*
+*║┊:* ◦ 📲Sistema operativo : *${conn.user.phone.device_manufacturer}*
+*║┊:* ◦ 🪀version de *WhatsApp* : ${conn.user.phone.wa_version}
 *║┊:* 👑𝐌𝐲 𝐜𝐚𝐧𝐚𝐥 𝐝𝐞 𝐲𝐨𝐮𝐭𝐮𝐛𝐞
 *║┊:* https://www.youtube.com/watch?v=chMc57gjmkI&t=88s
 *║┊:* 𝑇ℎ𝑎𝑛𝑘𝑠 𝑡𝑜 
@@ -135,7 +135,6 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       version: package.version,
       github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
       exp, limit, name, weton, week, date, time, totalreg,
-      navegador: conn.browserDescription[1]
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).join`|`})`, 'g'), (_, name) => replace[name])
