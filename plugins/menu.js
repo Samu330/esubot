@@ -1,6 +1,7 @@
 let fs = require ('fs')
 let path = require('path')
 let os = require('os')
+let { performance } = require('perf_hooks')
 let handler  = async (m, { conn, usedPrefix: _p }) => {
   try {
     let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
@@ -135,7 +136,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
       version: package.version,
       github: package.homepage ? package.homepage.url || package.homepage : '[unknown github url]',
       exp, limit, name, weton, week, date, time, totalreg,
-      velocidad: performance.now()
+      velocidad: performance
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).join`|`})`, 'g'), (_, name) => replace[name])
