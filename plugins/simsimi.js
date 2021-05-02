@@ -4,7 +4,7 @@ let fetch = require('node-fetch')
 let handler  = async (m, { conn, args, usedPrefix, command }) => {
 	if (!args || !args[0]) return conn.reply(m.chat, `Formato incorrecto!\n\n*Ejemplpo* : _${usedPrefix + command} Hola simi_`, m)
 	let text = args.join` `
-	fetch("https://simsumi.herokuapp.com/api?text=" + encodeURIComponent(text) + "&lang=id")
+	fetch("https://api.simsimi.net/v1/?text=" + encodeURIComponent(text) + "&lang=es")
   .then(res => res.json())
   .then(batch => {
     conn.updatePresence(m.chat, Presence.composing)
