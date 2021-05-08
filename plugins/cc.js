@@ -5,6 +5,7 @@ let handler = async(m, { conn }) => {
   .then(batch => {
     conn.updatePresence(m.chat, Presence.composing)
   conn.reply(m.chat, `${batch.result.card.network}`, m)} 
+} 
 
 handler.help = ['cc']
 handler.tags = ['tools']
