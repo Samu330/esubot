@@ -1,8 +1,10 @@
-const axios = require('axios')
+const axios = require('node-fetch')
 let handler = async(m, { conn }) => {
-    let samu = await axios.get('https://videfikri.com/api/ccgenerator/')
-           await conn.reply(m.chat, 'Data:' + ` ${samu.result.card.network}` + '\nnúmero:' + ` ${samu.result.card.number}`, m)
-  } 
+    fetch("https://videfikri.com/api/ccgenerator/")
+  .then(res => res.json())
+  .then(batch => {
+    conn.updatePresence(m.chat, Presence.composing)
+  conn.reply(m.chat, `${batch.result.card.network}`, m)} 
 
 handler.help = ['cc']
 handler.tags = ['tools']
