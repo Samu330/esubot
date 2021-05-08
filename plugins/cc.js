@@ -1,7 +1,7 @@
 const axios = require('axios')
 let handler = async(m, { conn }) => {
     let samu = await axios.get('https://videfikri.com/api/ccgenerator/')
-           await conn.reply(m.chat, 'Data:' + ` ${samu.result.network}` + '\nnúmero:' + ` ${samu.result.number}`, m)
+           await conn.reply(m.chat, 'Data:' + ` ${samu.result.card.network}` + '\nnúmero:' + ` ${samu.result.card.number}`, m)
   } 
 
 handler.help = ['cc']
