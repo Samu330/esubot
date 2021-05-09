@@ -7,7 +7,7 @@ let handler  = async (m, { conn, args }) => {
     let mime = (q.msg || q).mimetype || ''
     if (/image|video/.test(mime)) {
       let img = await q.download()
-      if (!img) throw 'Envia una Foto o Video'
+      if (!img) throw 'Envía una foto o video'
       stiker = await sticker(img, false, global.packname, global.author)
     } else if (args[0]) stiker = await sticker(false, args[0], global.packname, global.author)
   } finally {
