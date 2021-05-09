@@ -31,9 +31,11 @@ if (!global.DATABASE.data.users) global.DATABASE.data = {
   users: {},
   chats: {},
   stats: {},
+  msgs: {},
 }
 if (!global.DATABASE.data.chats) global.DATABASE.data.chats = {}
 if (!global.DATABASE.data.stats) global.DATABASE.data.stats = {}
+if (!global.DATABASE.data.stats) global.DATABASE.data.msgs = {}
 if (opts['server']) {
   let express = require('express')
   global.app = express()
@@ -121,19 +123,18 @@ global.reloadHandler = function () {
   if (!isInit) {
     conn.off('chat-update', conn.handler)
     conn.off('message-delete', conn.onDelete)
-    conn.off('group-add', conn.onAdd)
-    conn.off('group-leave', conn.onLeave)
+    conn.off('group-participants-update', conn.onParticipantsUpdate)
   }
   conn.welcome = 'Hola, @user!\nBienvenido al grupo @subject'
-  conn.bye = 'Adios @user!'
+  conn.bye = 'Adiós @user!'
+  conn.spromote = '@user ahora es admin!'
+  conn.sdemote = '@user ya no es admin!'
   conn.handler = handler.handler
-  conn.onAdd = handler.welcome
-  conn.onLeave = handler.leave
   conn.onDelete = handler.delete
+  conn.onParticipantsUpdate = handler.participantsUpdate
   conn.on('chat-update', conn.handler)
   conn.on('message-delete', conn.onDelete)
-  conn.on('group-add', conn.onAdd)
-  conn.on('group-leave', conn.onLeave)
+  conn.on('group-participants-update', conn.onParticipantsUpdate)
   if (isInit) {
     conn.on('error', conn.logger.error)
     conn.on('close', () => {
@@ -214,7 +215,3 @@ async function _quickTest() {
   if (!global.support.ffmpegWebp) conn.logger.warn('Stickers may not animated without libwebp on ffmpeg (--enable-ibwebp while compiling ffmpeg)')
   if (!global.support.convert) conn.logger.warn('Stickers may not work without imagemagick if libwebp on ffmpeg doesnt isntalled (pkg install imagemagick)')
 }
-
-/*_quickTest()
-  .then(() => conn.logger.info('Quick Test Done'))
-  .catch(console.error)*/
