@@ -1,33 +1,18 @@
-let { Presence } = require('@adiwajshing/baileys')
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-	
-	if(!args || !args[0]) {
-		await conn.updatePresence(m.chat, Presence.composing) 
-		conn.reply(m.chat, `*¡Formato incorrecto! Ejemplo :*\n\n	*${usedPrefix + command} on*\n	*○ ${usedPrefix + command} off*`, m)
-	} else if(args[0] == 'on') {
-		let cek = global.DATABASE._data.chats[m.chat].novirtex
-	if(cek) return conn.reply(m.chat, `*Anti Virtex ha estado activo en este grupo.*`, m)
-		await conn.updatePresence(m.chat, Presence.composing) 
-		global.DATABASE._data.chats[m.chat].novirtex = true
-		conn.reply(m.chat, `*Anti Virtex activado con éxito.*`, m)
-	} else if(args[0] == 'off') {
-		let cek = global.DATABASE._data.chats[m.chat].novirtex
+let handler = m => m
 
-	if(!cek) return conn.reply(m.chat, `*Anti Virtex ha sido inhabilitado en este grupo.*`, m)
-		await conn.updatePresence(m.chat, Presence.composing) 
-		global.DATABASE._data.chats[m.chat].novirtex = false
-		conn.reply(m.chat, `*Anti Virtex desactivado con éxito.*`, m)
-	} else {
-		await conn.updatePresence(m.chat, Presence.composing) 
-		conn.reply(m.chat, `*¡Formato incorrecto! Ejemplo :*\n\n	*${usedPrefix + command} on*\n	*○ ${usedPrefix + command} off*`, m)
-	} 
+handler.before = function(m, { text }) {
+
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let username = conn.getName(who)
+  let mentionedJid = [m.sender]
+  let name = m.fromMe ? conn.user : conn.contacts[m.sender]
+  let users = m.sender
+
+    if (m.text > 5000) {
+  this.reply(m.chat, '*「 ANTI VIRTEX 」*\n\nDetectado *${username}* a enviado un mensaje de mas de 5000 caracteres!\n\nSeras expulsado de este grupo por seguridad!', m)
+     this.groupRemove(m.chat, [users])
+  }
 }
-handler.help = ['antivirtex *on/off*']
-handler.tags = ['group admin']
-handler.command = /^(antivirtex)$/i
-handler.owner = false
-handler.admin = true
-handler.botAdmin = true
-handler.exp = 0
-handler.limit = false
+handler.group = true
+
 module.exports = handler
