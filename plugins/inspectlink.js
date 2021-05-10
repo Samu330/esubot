@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
   let [_, code] = text.match(linkRegex) || []
   if (!code) throw 'Link invalid'
   let res = await conn.query({
-    json: ["invite", code],
+    json: ["linkRegex", code],
     expect200: true
   })
   let caption = `
