@@ -85,7 +85,8 @@ echo -e '\033[0m\033[1;31m
                                                                 
 \033[0m'
 mv Samu.wav $HOME
-mv Samu.png $HOME
+cd media
+mv esu.png $HOME
 cd
 cd ..
 cd usr
