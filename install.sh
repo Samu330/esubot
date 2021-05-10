@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 echo -e  '\e[1;36mBuscame en \e[4;34mG\e[0m\e[4;31mo\e[0m\e[4;33mo\e[0m\e[4;34mg\e[0m\e[4;32ml\e[0m\e[4;31me\e[0m\e[1;36m Como \e[4;32;41mSamu330\033[0m'
-sleep 10.0
+sleep 10
 
 echo -e '\033[0m\033[1;32m
      _             _                     _   _                             _         
@@ -16,8 +16,8 @@ echo -e '\033[0m\033[1;32m
  | .__/   \__,_|  \__, |  \__,_|  \___|  \__|  \___| |___/
  |_|                 |_|                                  
 \033[0m'
-apt-get update
-apt-get upgrade
+pkg update
+pkg upgrade
 echo -e '\033[0m\033[1;36m
   ___                 _             _                       _          
  |_ _|  _ __    ___  | |_    __ _  | |   __ _   _ __     __| |   ___   
@@ -67,7 +67,6 @@ echo -e '\033[0m\033[1;35m
 apt-get install tesseract
 wget -O ~/../usr/share/tessdata/ind.traineddata "https://github.com/tesseract-ocr/tessdata/blob/master/ind.traineddata?raw=true"
 npm install
-npm i lolcatjs
 pkg install neofetch
 neofetch
 echo -e '\033[0m\033[1;31m
@@ -157,7 +156,7 @@ echo -e '\033[0m\033[1;36m
  |_| |_| |_| |___/  \__|  \__,_| |_|  \__,_|  \__,_|  \___/ 
                                                             
 \033[0m'
- sleep 3.0
+ sleep 3
 echo -e '\033[0m\033[1;32m
   _   _               _        
  | \ | |   ___     __| |   ___ 
@@ -170,6 +169,8 @@ echo -e '\033[0m\033[1;32m
  | | | | | | \__ \ | |_  | (_| | | | | (_| | | (_| | | (_) |
  |_| |_| |_| |___/  \__|  \__,_| |_|  \__,_|  \__,_|  \___/ 
  \033[0m'
- sleep 3.0
- termimage nyan.png
+ sleep 3
+ cd media
+ termimage esu.png
+ cd .. 
  npm audit fix --force 
