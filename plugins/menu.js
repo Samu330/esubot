@@ -102,7 +102,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 *║┊:* ◦ 📲Sistema operativo : *${conn.user.phone.device_manufacturer}*
 *║┊:* ◦ 🪀version de *WhatsApp* : ${conn.user.phone.wa_version}
 *║┊:* 👑𝐌𝐲 𝐜𝐚𝐧𝐚𝐥 𝐝𝐞 𝐲𝐨𝐮𝐭𝐮𝐛𝐞
-*║┊:* https://www.youtube.com/watch?v=chMc57gjmkI&t=88s
+*║┊:* https://www.youtube.com/watch?v=chMc57gjmkI
 *║┊:* 𝑇ℎ𝑎𝑛𝑘𝑠 𝑡𝑜 
 *║┊:* @Samu330
 *║┊:* ❤Sam y Perry👑
