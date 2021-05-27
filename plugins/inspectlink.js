@@ -12,8 +12,8 @@ let handler = async (m, { conn, text }) => {
 ${res.id}
 *🌤️TÍTULO:* ${res.subject}
 *👁️‍🗨️FECHA DE CREACIÓN:* ${formatDate(res.creation * 1000)}
-//*💭TITULO CAMBIADO* por @${res.subjectOwner.split`@`[0]} el *${formatDate(res.subjectTime * 1000)}*${res.descOwner ? `
-//*💬DESCRIPCIÓN MODIFICADA* por @${res.descOwner.split`@`[0]} el *${formatDate(res.descTime * 1000)}*` : ''}
+//*💭TITULO CAMBIADO* por  el *${formatDate(res.subjectTime * 1000)}*${res.descOwner ? `
+//*💬DESCRIPCIÓN MODIFICADA* por el *${formatDate(res.descTime * 1000)}*` : ''}
 *👥TOTAL DE MIEMBROS:* ${res.size}
 *👤MIEMBROS QUE SE AN UNIDO*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Ninguno'}
 ${res.desc ? `*👣DESCRIPCIÓN:*
