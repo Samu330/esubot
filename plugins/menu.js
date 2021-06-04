@@ -11,14 +11,13 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let name = conn.getName(m.sender)
     let d = new Date
     let locale = 'es'
-	let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
-	let weton = ['domingo','lunes','Martes','Miercoles','Jueves','Viernes','Sabado'][Math.floor(((d * 1) + gmt) / 84600000) % 6]
-	let week = d.toLocaleDateString(locale, { weekday: 'long' })
-	let date = d.toLocaleDateString(locale, {
-	day: 'numeric',
-	month: 'long',
-	year: 'numeric'
-	})
+    let weton = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves','Viernes','Sábado'][Math.floor(d / 84600000) % 5]
+    let week = d.toLocaleDateString(locale, { weekday: 'long' })
+    let date = d.toLocaleDateString(locale, {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
     let time = d.toLocaleTimeString(locale, {
       hour: 'numeric',
       minute: 'numeric',
