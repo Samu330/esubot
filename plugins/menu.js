@@ -12,7 +12,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let d = new Date
     let locale = 'es'
     let gmt = new Date(0).getTime() - new Date('1 January 1970').getTime()
-    let weton = ['domingo', 'lunes','martes','miércoles','jueves','sábado'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
+    let weton = ['domingo', 'lunes','martes','miércoles','jueves','sábado'][Math.floor(((d * 1) + gmt) / 84600000) % 6]
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
       day: 'numeric',
