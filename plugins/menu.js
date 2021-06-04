@@ -14,7 +14,7 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
 	let gmt = new Date(0).getTime() - new Date('1 Januari 2021').getTime()
 	let weton = ['domingo','lunes','Martes','Miercoles','Jueves','Viernes','Sabado'][Math.floor(((d * 1) + gmt) / 84600000) % 7]
 	let week = d.toLocaleDateString(locale, { weekday: 'long' })
-	let calender = d.toLocaleDateString(locale, {
+	let date = d.toLocaleDateString(locale, {
 	day: 'numeric',
 	month: 'long',
 	year: 'numeric'
