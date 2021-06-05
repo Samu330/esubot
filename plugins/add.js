@@ -29,7 +29,7 @@ let handler = async (m, { conn, text, participants }) => {
     } : {})
   }
 }
-handler.help = ['add', '+'].map(v => v + ' número,número')
+handler.help = ['add', '+'].map(v => v + ' número')
 handler.tags = ['admin']
 handler.command = /^(add|\+)$/i
 handler.owner = false
