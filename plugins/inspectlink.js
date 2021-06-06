@@ -23,7 +23,12 @@ ${res.desc}` : '*🚫SIN DESCRIPCIÓN🚫*'}
 \`\`\`${JSON.stringify(res, null, 1)}\`\`\`
 `.trim()
   let pp = await conn.getProfilePicture(res.id).catch(console.error)
-  if (pp) conn.sendFile(m.chat, pp, 'pp.jpg' + 'caption', null, m)
+  if (pp) conn.sendFile(m.chat, pp, 'pp.jpg', caption, false, {
+    contextInfo: {
+      mentionedJid: conn.parseMention(caption)
+    }
+  })
+}, null, m)
   m.reply(caption, false, {
     contextInfo: {
       mentionedJid: conn.parseMention(caption)
