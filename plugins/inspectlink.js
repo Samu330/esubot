@@ -28,7 +28,7 @@ ${res.desc}` : '*🚫SIN DESCRIPCIÓN🚫*'}
       mentionedJid: conn.parseMention(caption)
     }
   })
-}, null, m)
+}, m)
   m.reply(caption, false, {
     contextInfo: {
       mentionedJid: conn.parseMention(caption)
