@@ -16,14 +16,14 @@ ${res.id}
 *Nombre cambiado* por @${res.subjectOwner.split`@`[0]} el *${formatDate(res.subjectTime * 1000)}*`: ''}${res.descOwner ? `
 *Descripción modificada* por @${res.descOwner.split`@`[0]} el *${formatDate(res.descTime * 1000)}*` : ''}
 *👥Miembros:* ${res.size}
-*🔁Miembros que se an unido*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Ninguno'}
+*🔁Miembros registrados por el bot que se an unido*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Ninguno'}
 ${res.desc ? `*🗒️Descripción:*
 ${res.desc}` : '*🚫SIN DESCRIPCIÓN🚫*'}
 *JSON Version*
 \`\`\`${JSON.stringify(res, null, 1)}\`\`\`
 `.trim()
   let pp = await conn.getProfilePicture(res.id).catch(console.error)
-  if (pp) conn.sendFile(m.chat, pp, 'pp.jpg', null, m)
+  if (pp) conn.sendFile(m.chat, pp, 'pp.jpg' + 'caption', null, m)
   m.reply(caption, false, {
     contextInfo: {
       mentionedJid: conn.parseMention(caption)
