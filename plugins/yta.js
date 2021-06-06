@@ -13,7 +13,6 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
 *💥${isLimit ? 'Resatantes ': ''}Link:* ${dl_link}
 `.trim(), m)
   if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp3', `
-  if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.ttp', `
 *📱Title:* ${title}
 *📁Filesize:* ${filesizeF}
 `.trim(), m)
