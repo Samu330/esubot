@@ -2,7 +2,7 @@ let linkRegex = /chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
 
 let handler = async (m, { conn, text }) => {
   let [, code] = text.match(linkRegex) || []
-  if (!code) throw 'Link invalid'
+  if (!code) throw 'Link invalido'
   let res = await conn.query({
     json: ["query", "invite", code],
     expect200: true
@@ -11,14 +11,14 @@ let handler = async (m, { conn, text }) => {
   let caption = `
 -- [Group Link Inspector] --
 ${res.id}
-*Judul:* ${res.subject}
-*Dibuat* oleh @${res.id.split('-')[0]} pada *${formatDate(res.creation * 1000)}*${res.subjectOwner ? `
-*Judul diubah* oleh @${res.subjectOwner.split`@`[0]} pada *${formatDate(res.subjectTime * 1000)}*`: ''}${res.descOwner ? `
-*Deskripsi diubah* oleh @${res.descOwner.split`@`[0]} pada *${formatDate(res.descTime * 1000)}*` : ''}
-*Jumlah Member:* ${res.size}
-*Member yang diketahui join*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Tidak ada'}
-${res.desc ? `*Deskripsi:*
-${res.desc}` : '*Tidak ada Deskripsi*'}
+*Nombre:* ${res.subject}
+*Creado* por @${res.id.split('-')[0]} el *${formatDate(res.creation * 1000)}*${res.subjectOwner ? `
+*Nombre cambiado* por @${res.subjectOwner.split`@`[0]} el *${formatDate(res.subjectTime * 1000)}*`: ''}${res.descOwner ? `
+*Descripción modificada* por @${res.descOwner.split`@`[0]} el *${formatDate(res.descTime * 1000)}*` : ''}
+*👥Miembros:* ${res.size}
+*🔁Miembros que se an unido*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Ninguno'}
+${res.desc ? `*🗒️Descripción:*
+${res.desc}` : '*🚫SIN DESCRIPCIÓN🚫*'}
 *JSON Version*
 \`\`\`${JSON.stringify(res, null, 1)}\`\`\`
 `.trim()
@@ -37,7 +37,7 @@ handler.command = /^inspect$/i
 
 module.exports = handler
 
-function formatDate(n, locale = 'id') {
+function formatDate(n, locale = 'es') {
   let d = new Date(n)
   return d.toLocaleDateString(locale, {
     weekday: 'long',
