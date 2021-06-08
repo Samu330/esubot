@@ -261,7 +261,7 @@ module.exports = {
                 console.error(e)
               }
             }
-            if (m.limit) m.reply(+ *m.limit* + ' Límites aplicados✒️')
+            if (m.limit) m.reply(+ m.limit + ' Límites aplicados✒️')
           }
           break
         }
