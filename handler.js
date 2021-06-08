@@ -215,7 +215,6 @@ module.exports = {
 
           m.isCommand = true
           let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 
-          else m.exp += xp
           if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
             this.reply(m.chat, `No cuentas con límites diferentes, por favor compra mas:*${usedPrefix}buy*`, m)
             continue // Limit habis
